@@ -1,4 +1,4 @@
-baseURL = 'http://localhost:1313/'
+baseURL = 'https://gaiaetmarkus.github.io/'
 languageCode = 'fr-fr'
 title = 'Cours Angular 5ème année'
 theme = 'angular-course-theme'
