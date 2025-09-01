@@ -1,0 +1,49 @@
+baseURL = 'http://localhost:1313/'
+languageCode = 'fr-fr'
+title = 'Cours Angular 5ème année'
+theme = 'angular-course-theme'
+
+[params]
+  description = "Cours complet Angular 20+ pour les étudiants de 5ème année"
+  author = "Formateur Angular"
+
+[menu]
+  [[menu.main]]
+    identifier = "introduction"
+    name = "Introduction"
+    url = "/introduction/"
+    weight = 1
+  [[menu.main]]
+    identifier = "partie-1"
+    name = "Partie 1"
+    url = "/partie-1/"
+    weight = 2
+  [[menu.main]]
+    identifier = "partie-2"
+    name = "Partie 2"
+    url = "/partie-2/"
+    weight = 3
+  [[menu.main]]
+    identifier = "partie-3"
+    name = "Partie 3"
+    url = "/partie-3/"
+    weight = 4
+  [[menu.main]]
+    identifier = "partie-4"
+    name = "Partie 4"
+    url = "/partie-4/"
+    weight = 5
+  [[menu.main]]
+    identifier = "partie-5"
+    name = "Projet"
+    url = "/partie-5/"
+    weight = 6
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    style = "github"
+    lineNos = true
+    lineNumbersInTable = true

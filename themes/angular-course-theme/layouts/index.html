@@ -1,0 +1,90 @@
+{{ define "main" }}
+<div class="text-center mb-12">
+    <div class="mb-8">
+        <i class="fab fa-angular text-6xl text-blue-600 mb-4"></i>
+        <h1 class="text-5xl font-bold text-gray-900 mb-4">{{ .Site.Title }}</h1>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">{{ .Site.Params.description }}</p>
+    </div>
+    
+    <div class="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-8">
+        <h2 class="text-2xl font-semibold text-blue-900 mb-4">
+            <i class="fas fa-graduation-cap mr-2"></i>
+            Programme du cours
+        </h2>
+        <p class="text-blue-800">
+            Ce cours couvre Angular 20+ avec une approche pratique et moderne, 
+            incluant les Signals, le nouveau control flow, et l'architecture DDD.
+        </p>
+    </div>
+</div>
+
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+    {{ range .Site.Menus.main }}
+    <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+        <div class="text-center">
+            {{ if eq .Identifier "introduction" }}
+                <i class="fas fa-info-circle text-3xl text-blue-500 mb-4"></i>
+            {{ else if eq .Identifier "partie-1" }}
+                <i class="fas fa-rocket text-3xl text-green-500 mb-4"></i>
+            {{ else if eq .Identifier "partie-2" }}
+                <i class="fas fa-cogs text-3xl text-purple-500 mb-4"></i>
+            {{ else if eq .Identifier "partie-3" }}
+                <i class="fas fa-database text-3xl text-orange-500 mb-4"></i>
+            {{ else if eq .Identifier "partie-4" }}
+                <i class="fas fa-shield-alt text-3xl text-red-500 mb-4"></i>
+            {{ else if eq .Identifier "partie-5" }}
+                <i class="fas fa-trophy text-3xl text-yellow-500 mb-4"></i>
+            {{ end }}
+            
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">{{ .Name }}</h3>
+            <p class="text-gray-600 mb-4">
+                {{ if eq .Identifier "introduction" }}
+                    Histoire d'Angular, comparaisons, architecture et concepts fondamentaux
+                {{ else if eq .Identifier "partie-1" }}
+                    Fondamentaux, architecture DDD, composants et routing de base
+                {{ else if eq .Identifier "partie-2" }}
+                    Authentification, formulaires et validation
+                {{ else if eq .Identifier "partie-3" }}
+                    Services avancés, intercepteurs et gestion d'état
+                {{ else if eq .Identifier "partie-4" }}
+                    Guards, résolveurs et optimisations
+                {{ else if eq .Identifier "partie-5" }}
+                    Projet final et évaluation
+                {{ end }}
+            </p>
+            <a href="{{ .URL }}" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors">
+                Commencer
+                <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+        </div>
+    </div>
+    {{ end }}
+</div>
+
+<div class="mt-12 bg-gray-50 rounded-lg p-8">
+    <h2 class="text-2xl font-semibold text-gray-900 mb-4">
+        <i class="fas fa-tools mr-2"></i>
+        Prérequis techniques
+    </h2>
+    <div class="grid md:grid-cols-2 gap-6">
+        <div>
+            <h3 class="text-lg font-medium text-gray-900 mb-2">Environnement de développement</h3>
+            <ul class="text-gray-600 space-y-1">
+                <li><i class="fas fa-check text-green-500 mr-2"></i>Node.js 20+</li>
+                <li><i class="fas fa-check text-green-500 mr-2"></i>Angular CLI 20+</li>
+                <li><i class="fas fa-check text-green-500 mr-2"></i>VS Code avec extensions</li>
+                <li><i class="fas fa-check text-green-500 mr-2"></i>Git et GitHub</li>
+            </ul>
+        </div>
+        <div>
+            <h3 class="text-lg font-medium text-gray-900 mb-2">Connaissances requises</h3>
+            <ul class="text-gray-600 space-y-1">
+                <li><i class="fas fa-check text-green-500 mr-2"></i>JavaScript/TypeScript</li>
+                <li><i class="fas fa-check text-green-500 mr-2"></i>HTML/CSS</li>
+                <li><i class="fas fa-check text-green-500 mr-2"></i>Concepts de programmation</li>
+                <li><i class="fas fa-check text-green-500 mr-2"></i>Notions de base de données</li>
+            </ul>
+        </div>
+    </div>
+</div>
+{{ end }} 

@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="fr-fr">
+<head>
+	<meta name="generator" content="Hugo 0.149.0"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cours Angular 5ème année</title>
+    <meta name="description" content="Cours complet Angular 20&#43; pour les étudiants de 5ème année">
+    
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet" />
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        .prose {
+            max-width: none;
+            margin: 0 auto;
+            width: 100%;
+        }
+        body {
+            background-color: #2c2c2c;
+            color: #f0f0f0;
+            overflow-x: auto;
+        }
+        
+         
+        .prose * {
+            box-sizing: border-box;
+        }
+        
+        .prose > * {
+            display: block;
+            width: fit-content;
+        }
+        
+        .prose h1, .prose h2, .prose h3, .prose h4 {
+            color: #f0f0f0;
+            font-weight: 700;
+            display: block;
+            width: 100%;
+        }
+        .prose h1 { font-size: 2.25rem; margin-top: 2rem; margin-bottom: 1rem; }
+        .prose h2 { font-size: 1.875rem; margin-top: 1.5rem; margin-bottom: 0.75rem; }
+        .prose h3 { font-size: 1.5rem; margin-top: 1.25rem; margin-bottom: 0.5rem; }
+        .prose code {
+            background-color: transparent;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.375rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #000000;
+            border: none;
+            display: inline;
+        }
+        .prose pre {
+            background-color: #ffffff;
+            color: #000000;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .prose blockquote {
+            border-left: 4px solid #3b82f6;
+            padding-left: 1rem;
+            margin: 1rem 0;
+            font-style: italic;
+            color: #d1d5db;
+        }
+        .prose table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        .prose th, .prose td {
+            border: 1px solid #4a5568;
+            padding: 0.5rem;
+            text-align: left;
+            color: #f0f0f0;
+        }
+        .prose th {
+            background-color: #374151;
+            font-weight: 600;
+            color: #f0f0f0;
+        }
+        .prose ul, .prose ol {
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+            display: block;
+        }
+        .prose li {
+            margin: 0.25rem 0;
+            display: list-item;
+        }
+        .prose img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 0.5rem;
+            margin: 1rem 0;
+            display: block;
+        }
+        .prose .highlight {
+            background-color: #f59e0b;
+            color: #1f2937;
+            padding: 0.125rem 0.25rem;
+            border-radius: 0.25rem;
+        }
+        .prose .warning {
+            background-color: #7f1d1d;
+            border: 1px solid #dc2626;
+            color: #fecaca;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin: 1rem 0;
+        }
+        .prose .info {
+            background-color: #1e3a8a;
+            border: 1px solid #3b82f6;
+            color: #bfdbfe;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin: 1rem 0;
+        }
+        .prose .success {
+            background-color: #14532d;
+            border: 1px solid #22c55e;
+            color: #bbf7d0;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin: 1rem 0;
+        }
+
+    </style>
+</head>
+<body class="min-h-screen">
+    
+    <nav class="bg-blue-600 text-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="http://localhost:1313/" class="flex items-center space-x-2">
+                        <i class="fab fa-angular text-2xl"></i>
+                        <span class="text-xl font-bold">Cours Angular 5ème année</span>
+                    </a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    
+                    <a href="/introduction/" class="hover:text-blue-200 transition-colors">
+                        Introduction
+                    </a>
+                    
+                    <a href="/partie-1/" class="hover:text-blue-200 transition-colors">
+                        Partie 1
+                    </a>
+                    
+                    <a href="/partie-2/" class="hover:text-blue-200 transition-colors">
+                        Partie 2
+                    </a>
+                    
+                    <a href="/partie-3/" class="hover:text-blue-200 transition-colors">
+                        Partie 3
+                    </a>
+                    
+                    <a href="/partie-4/" class="hover:text-blue-200 transition-colors">
+                        Partie 4
+                    </a>
+                    
+                    <a href="/partie-5/" class="hover:text-blue-200 transition-colors">
+                        Projet
+                    </a>
+                    
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <article class="prose prose-lg mx-auto text-gray-100">
+            
+  
+  
+    <h2><a href="/introduction/"></a></h2>
+    <h1 id="introduction-à-angular">Introduction à Angular</h1>
+<h2 id="-histoire-dangular">📚 Histoire d&rsquo;Angular</h2>
+<h3 id="les-origines-2010-2016">Les origines (2010-2016)</h3>
+<ul>
+<li><strong>2010</strong> : Google lance AngularJS (Angular 1.x) - un framework révolutionnaire pour l&rsquo;époque</li>
+<li><strong>2012</strong> : AngularJS devient très populaire grâce à son approche &ldquo;two-way data binding&rdquo; - une technique révolutionnaire qui permettait de synchroniser automatiquement les données entre le modèle (JavaScript) et la vue (HTML). Quand l&rsquo;utilisateur modifiait un champ, la variable JavaScript était mise à jour automatiquement, et vice versa. C&rsquo;était magique pour l&rsquo;époque !</li>
+<li><strong>2014-2016</strong> : L&rsquo;équipe Google commence à repenser complètement Angular</li>
+</ul>
+<h3 id="angular-moderne-2016-présent">Angular moderne (2016-présent)</h3>
+<ul>
+<li><strong>2016</strong> : Sortie d&rsquo;Angular 2 - réécriture complète en TypeScript</li>
+<li><strong>2017-2019</strong> : Évolutions majeures avec Angular 4, 5, 6&hellip;</li>
+<li><strong>2020-2023</strong> : Améliorations continues, Ivy renderer, standalone components</li>
+<li><strong>Angular 17</strong> (Novembre 2023) : Performances révolutionnaires avec l&rsquo;hydratation, deferrable views, et control flow</li>
+<li><strong>Angular 18</strong> (Mai 2024) : Améliorations continues, optimisations du bundle, et nouveaux composants Material</li>
+<li><strong>Angular 19</strong> (Août 2024) : Nouvelles fonctionnalités, amélioration des Signals, et support des Web Components</li>
+<li><strong>Angular 20</strong> (Novembre 2024) : Optimisations de performance, stabilité, et nouvelles APIs pour la gestion d&rsquo;état</li>
+</ul>
+<h3 id="pourquoi-angular-évolue-si-vite-"><strong>Pourquoi Angular évolue si vite ?</strong></h3>
+<ol>
+<li><strong>Équipe Google dédiée</strong> : Plus de 50 développeurs à plein temps</li>
+<li><strong>Feedback communautaire</strong> : Réactivité aux besoins des développeurs</li>
+<li><strong>Concurrence</strong> : React et Vue évoluent aussi rapidement</li>
+<li><strong>Standards web</strong> : Suivre les nouvelles APIs du navigateur</li>
+<li><strong>Performance</strong> : Course à l&rsquo;optimisation continue</li>
+</ol>
+<h3 id="cycle-de-release-moderne-"><strong>Cycle de release moderne :</strong></h3>
+<h3 id="stabilité-garantie-"><strong>Stabilité garantie :</strong></h3>
+<ul>
+<li><strong>Semantic Versioning</strong> : Les versions majeures (17, 18, 19, 20) sont compatibles</li>
+<li><strong>Migration guides</strong> : Documentation détaillée pour chaque upgrade</li>
+<li><strong>Long Term Support</strong> : Support étendu pour les versions stables</li>
+</ul>
+<h3 id="pourquoi-cette-évolution-">Pourquoi cette évolution ?</h3>
+<p>AngularJS avait des limitations importantes :</p>
+  
+    <h2><a href="/partie-1/"></a></h2>
+    <h1 id="partie-1--fondamentaux-et-architecture-ddd">Partie 1 : Fondamentaux et Architecture DDD</h1>
+<h2 id="-objectifs-de-la-partie-1">🎯 Objectifs de la partie 1</h2>
+<p>À la fin de cette partie, vous serez capable de :</p>
+<ul>
+<li>✅ Créer un projet Angular 20+</li>
+<li>✅ Comprendre l&rsquo;architecture DDD</li>
+<li>✅ Créer des composants et utiliser le data binding</li>
+<li>✅ Utiliser les directives structurelles modernes (<code>@if</code>, <code>@for</code>)</li>
+<li>✅ Implémenter les pipes built-in</li>
+<li>✅ Mettre en place le routing de base</li>
+<li>✅ Utiliser les services et simuler des appels API</li>
+</ul>
+<hr>
+<h2 id="-étape-1--création-du-projet-angular">🚀 Étape 1 : Création du projet Angular</h2>
+<h3 id="prérequis"><strong>Prérequis</strong></h3>
+<h4 id="1-vérifierinstaller-nodejs"><strong>1. Vérifier/Installer Node.js</strong></h4>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Vérifier si Node.js est installé</span>
+</span></span><span style="display:flex;"><span>node --version
+</span></span><span style="display:flex;"><span>npm --version
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Si pas installé, télécharger depuis : https://nodejs.org/</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Ou installer via Homebrew (macOS)</span>
+</span></span><span style="display:flex;"><span>brew install node
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Ou installer via Chocolatey (Windows)</span>
+</span></span><span style="display:flex;"><span>choco install nodejs
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Version requise : Node.js 20+ pour Angular 20+</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="2-mettre-à-jour-npm-optionnel-mais-recommandé"><strong>2. Mettre à jour npm (optionnel mais recommandé)</strong></h4>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Mettre à jour npm vers la dernière version</span>
+</span></span><span style="display:flex;"><span>npm install -g npm@latest
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Vérifier la version</span>
+</span></span><span style="display:flex;"><span>npm --version
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="3-autres-prérequis"><strong>3. Autres prérequis</strong></h4>
+<ul>
+<li>Git installé</li>
+<li>Compte GitHub créé</li>
+</ul>
+<h3 id="création-du-projet"><strong>Création du projet</strong></h3>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Installer Angular CLI globalement</span>
+</span></span><span style="display:flex;"><span>npm install -g @angular/cli
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Créer le projet TodoList</span>
+</span></span><span style="display:flex;"><span>ng new todo-list-app
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Réponses aux questions :</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># - Would you like to add Angular routing? → Yes</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># - Which stylesheet format would you like to use? → CSS (ou votre préférence)</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># - Do you want to create a &#39;zoneless&#39; application without zone.js (Developer Preview)? → No</span>
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># - Do you want to enable Server-Side Rendering (SSR) and Static Site Generation (SSG/Prerendering)? → No</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="structure-du-projet-créé"><strong>Structure du projet créé</strong></h3>
+<pre tabindex="0"><code>todo-list-app/
+├── src/
+│   ├── app/
+│   │   ├── app.component.ts
+│   │   ├── app.component.html
+│   │   ├── app.component.css
+│   │   ├── app.module.ts
+│   │   └── app-routing.module.ts
+│   ├── assets/
+│   ├── index.html
+│   └── main.ts
+├── package.json
+└── angular.json
+</code></pre><h3 id="lancer-l"><strong>Lancer l&rsquo;application</strong></h3>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#6639ba">cd</span> todo-list-app
+</span></span><span style="display:flex;"><span>ng serve
+</span></span><span style="display:flex;"><span><span style="color:#57606a"># Ouvrir http://localhost:4200</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><hr>
+<h2 id="-étape-13--configuration-du-projet-angular">⚙️ Étape 1.3 : Configuration du projet Angular</h2>
+<h3 id="fichiers-de-configuration-principaux"><strong>Fichiers de configuration principaux</strong></h3>
+<h4 id="1-angularjson---configuration-du-workspace"><strong>1. angular.json - Configuration du workspace</strong></h4>
+<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0550ae">&#34;$schema&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;./node_modules/@angular/cli/lib/config/schema.json&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0550ae">&#34;version&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0550ae">1</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0550ae">&#34;newProjectRoot&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;projects&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#0550ae">&#34;projects&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">&#34;todo-list-app&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#0550ae">&#34;projectType&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;application&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#0550ae">&#34;schematics&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">{},</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#0550ae">&#34;root&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#0550ae">&#34;sourceRoot&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;src&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#0550ae">&#34;prefix&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;app&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#0550ae">&#34;architect&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0550ae">&#34;build&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#0550ae">&#34;builder&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;@angular-devkit/build-angular:browser&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#0550ae">&#34;options&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#0550ae">&#34;outputPath&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;dist/todo-list-app&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#0550ae">&#34;index&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;src/index.html&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#0550ae">&#34;main&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;src/main.ts&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#0550ae">&#34;polyfills&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">[</span><span style="color:#0a3069">&#34;zone.js&#34;</span><span style="color:#1f2328">],</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#0550ae">&#34;tsConfig&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;tsconfig.app.json&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#0550ae">&#34;assets&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">[</span><span style="color:#0a3069">&#34;src/favicon.ico&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;src/assets&#34;</span><span style="color:#1f2328">],</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#0550ae">&#34;styles&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">[</span><span style="color:#0a3069">&#34;src/styles.css&#34;</span><span style="color:#1f2328">],</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#0550ae">&#34;scripts&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">[]</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">},</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#0550ae">&#34;serve&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#0550ae">&#34;builder&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;@angular-devkit/build-angular:dev-server&#34;</span><span style="color:#1f2328">,</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#0550ae">&#34;options&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#0550ae">&#34;buildTarget&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;todo-list-app:build&#34;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>Explications :</strong></p>
+  
+    <h2><a href="/partie-2/"></a></h2>
+    <h1 id="partie-2--authentification-et-formulaires-réactifs">Partie 2 : Authentification et Formulaires Réactifs</h1>
+<h2 id="-objectifs-de-la-partie-2">🎯 Objectifs de la Partie 2</h2>
+<p>À la fin de cette partie, vous serez capable de :</p>
+<ul>
+<li>✅ Créer des formulaires réactifs avec validation</li>
+<li>✅ Implémenter l&rsquo;authentification complète (login/register)</li>
+<li>✅ Utiliser les Guards pour protéger les routes</li>
+<li>✅ Maîtriser le lazy loading des modules</li>
+<li>✅ Gérer les intercepteurs HTTP</li>
+<li>✅ Créer une interface admin fonctionnelle</li>
+</ul>
+<hr>
+<h2 id="-étape-21--formulaires-réactifs">🔐 Étape 2.1 : Formulaires Réactifs</h2>
+<h3 id="-étape-21--formulaires-réactifs---terminée"><strong>✅ Étape 2.1 : Formulaires Réactifs - TERMINÉE</strong></h3>
+<p><strong>Implémentation :</strong></p>
+  
+    <h2><a href="/partie-3/"></a></h2>
+    <h1 id="partie-3--gestion-détat-avancée-et-composants-personnalisés">Partie 3 : Gestion d&rsquo;État Avancée et Composants Personnalisés</h1>
+<h2 id="-objectifs-de-la-partie-3">🎯 Objectifs de la Partie 3</h2>
+<p>À la fin de cette partie, vous serez capable de :</p>
+<ul>
+<li>✅ Maîtriser la gestion d&rsquo;état avec Signals (avantages vs anciennes méthodes)</li>
+<li>✅ Créer des pipes personnalisés pour la transformation de données</li>
+<li>✅ Développer des directives personnalisées</li>
+<li>✅ Implémenter une communication avancée entre composants</li>
+<li>✅ Optimiser les performances avec les nouvelles fonctionnalités Angular 20+</li>
+</ul>
+<hr>
+<h2 id="-étape-31--gestion-détat-avancée-avec-signals">🔄 Étape 3.1 : Gestion d&rsquo;État Avancée avec Signals</h2>
+<h3 id="pourquoi-les-signals-sont-révolutionnaires-"><strong>Pourquoi les Signals sont révolutionnaires ?</strong></h3>
+<p>Les Signals d&rsquo;Angular 20+ représentent une <strong>révolution</strong> dans la gestion d&rsquo;état par rapport aux anciennes méthodes :</p>
+  
+    <h2><a href="/partie-4/"></a></h2>
+    <h1 id="partie-4--tests-performance-et-déploiement">Partie 4 : Tests, Performance et Déploiement</h1>
+<h2 id="-objectifs-de-la-partie-4">🎯 Objectifs de la Partie 4</h2>
+<p>À la fin de cette partie, vous serez capable de :</p>
+<ul>
+<li>✅ Écrire des tests unitaires, d&rsquo;intégration et e2e avec Angular</li>
+<li>✅ Optimiser les performances avec OnPush strategy, trackBy, lazy loading</li>
+<li>✅ Configurer et déployer une application Angular en production</li>
+<li>✅ Appliquer les bonnes pratiques de code review et refactoring</li>
+</ul>
+<hr>
+<h2 id="-étape-41--tests-unitaires-et-dintégration">🧪 Étape 4.1 : Tests Unitaires et d&rsquo;Intégration</h2>
+<h3 id="pourquoi-les-tests-sont-essentiels-"><strong>Pourquoi les tests sont essentiels ?</strong></h3>
+<p>Les tests garantissent la <strong>qualité du code</strong> et la <strong>fiabilité de l&rsquo;application</strong> :</p>
+  
+    <h2><a href="/posts/post-1/"></a></h2>
+    
+  
+    <h2><a href="/posts/post-2/"></a></h2>
+    
+  
+    <h2><a href="/posts/post-3/"></a></h2>
+    
+  
+
+        </article>
+    </main>
+
+    
+    <footer class="bg-gray-800 text-white py-8 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <p>&copy; 2025 Cours Angular 5ème année. Tous droits réservés.</p>
+                <p class="text-gray-400 mt-2">Cours Angular 20+ pour les étudiants de 5ème année</p>
+            </div>
+        </div>
+    </footer>
+
+    
+    <script>
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            Prism.highlightAll();
+        });
+        
+        
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html> 

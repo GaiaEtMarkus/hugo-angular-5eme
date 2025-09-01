@@ -1,0 +1,44 @@
+{{ define "main" }}
+<div class="mb-8">
+    <h1 class="text-4xl font-bold text-gray-900 mb-4">{{ .Title }}</h1>
+    {{ if .Params.description }}
+    <p class="text-xl text-gray-600 mb-6">{{ .Params.description }}</p>
+    {{ end }}
+    <div class="flex items-center text-sm text-gray-500 mb-8">
+        <i class="far fa-calendar mr-2"></i>
+        <span>{{ .Date.Format "2 January 2006" }}</span>
+        {{ if .Params.author }}
+        <span class="mx-2">•</span>
+        <i class="far fa-user mr-2"></i>
+        <span>{{ .Params.author }}</span>
+        {{ end }}
+    </div>
+</div>
+
+<div class="content">
+    {{ .Content }}
+</div>
+
+<!-- Navigation entre les parties -->
+<div class="mt-12 pt-8 border-t border-gray-200">
+    <div class="flex justify-between items-center">
+        {{ with .PrevInSection }}
+        <a href="{{ .RelPermalink }}" class="flex items-center text-blue-600 hover:text-blue-800">
+            <i class="fas fa-arrow-left mr-2"></i>
+            <span>{{ .Title }}</span>
+        </a>
+        {{ else }}
+        <div></div>
+        {{ end }}
+        
+        {{ with .NextInSection }}
+        <a href="{{ .RelPermalink }}" class="flex items-center text-blue-600 hover:text-blue-800">
+            <span>{{ .Title }}</span>
+            <i class="fas fa-arrow-right ml-2"></i>
+        </a>
+        {{ else }}
+        <div></div>
+        {{ end }}
+    </div>
+</div>
+{{ end }} 
