@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Home on Cours Angular 5ème année</title><link>http://localhost:1313/</link><description>Recent content in Home on Cours Angular 5ème année</description><generator>Hugo</generator><language>fr-fr</language><lastBuildDate>Mon, 01 Jan 0001 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>http://localhost:1313/introduction/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1313/introduction/</guid><description>&lt;h1 id="introduction-à-angular"&gt;Introduction à Angular&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Home on Cours Angular 5ème année</title><link>https://gaiaetmarkus.github.io/</link><description>Recent content in Home on Cours Angular 5ème année</description><generator>Hugo</generator><language>fr-fr</language><lastBuildDate>Mon, 01 Jan 0001 00:00:00 +0000</lastBuildDate><atom:link href="https://gaiaetmarkus.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://gaiaetmarkus.github.io/introduction/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://gaiaetmarkus.github.io/introduction/</guid><description>&lt;h1 id="introduction-à-angular"&gt;Introduction à Angular&lt;/h1&gt;
 &lt;h2 id="-histoire-dangular"&gt;📚 Histoire d&amp;rsquo;Angular&lt;/h2&gt;
 &lt;h3 id="les-origines-2010-2016"&gt;Les origines (2010-2016)&lt;/h3&gt;
 &lt;ul&gt;
@@ -32,7 +32,7 @@
 &lt;li&gt;&lt;strong&gt;Long Term Support&lt;/strong&gt; : Support étendu pour les versions stables&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id="pourquoi-cette-évolution-"&gt;Pourquoi cette évolution ?&lt;/h3&gt;
-&lt;p&gt;AngularJS avait des limitations importantes :&lt;/p&gt;</description></item><item><title/><link>http://localhost:1313/partie-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1313/partie-1/</guid><description>&lt;h1 id="partie-1--fondamentaux-et-architecture-ddd"&gt;Partie 1 : Fondamentaux et Architecture DDD&lt;/h1&gt;
+&lt;p&gt;AngularJS avait des limitations importantes :&lt;/p&gt;</description></item><item><title/><link>https://gaiaetmarkus.github.io/partie-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://gaiaetmarkus.github.io/partie-1/</guid><description>&lt;h1 id="partie-1--fondamentaux-et-architecture-ddd"&gt;Partie 1 : Fondamentaux et Architecture DDD&lt;/h1&gt;
 &lt;h2 id="-objectifs-de-la-partie-1"&gt;🎯 Objectifs de la partie 1&lt;/h2&gt;
 &lt;p&gt;À la fin de cette partie, vous serez capable de :&lt;/p&gt;
 &lt;ul&gt;
@@ -236,7 +236,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#1f2328"&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Explications :&lt;/strong&gt;&lt;/p&gt;</description></item><item><title/><link>http://localhost:1313/partie-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1313/partie-2/</guid><description>&lt;h1 id="partie-2--authentification-et-formulaires-réactifs"&gt;Partie 2 : Authentification et Formulaires Réactifs&lt;/h1&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Explications :&lt;/strong&gt;&lt;/p&gt;</description></item><item><title/><link>https://gaiaetmarkus.github.io/partie-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://gaiaetmarkus.github.io/partie-2/</guid><description>&lt;h1 id="partie-2--authentification-et-formulaires-réactifs"&gt;Partie 2 : Authentification et Formulaires Réactifs&lt;/h1&gt;
 &lt;h2 id="-objectifs-de-la-partie-2"&gt;🎯 Objectifs de la Partie 2&lt;/h2&gt;
 &lt;p&gt;À la fin de cette partie, vous serez capable de :&lt;/p&gt;
 &lt;ul&gt;
@@ -250,7 +250,7 @@
 &lt;hr&gt;
 &lt;h2 id="-étape-21--formulaires-réactifs"&gt;🔐 Étape 2.1 : Formulaires Réactifs&lt;/h2&gt;
 &lt;h3 id="-étape-21--formulaires-réactifs---terminée"&gt;&lt;strong&gt;✅ Étape 2.1 : Formulaires Réactifs - TERMINÉE&lt;/strong&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;Implémentation :&lt;/strong&gt;&lt;/p&gt;</description></item><item><title/><link>http://localhost:1313/partie-3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1313/partie-3/</guid><description>&lt;h1 id="partie-3--gestion-détat-avancée-et-composants-personnalisés"&gt;Partie 3 : Gestion d&amp;rsquo;État Avancée et Composants Personnalisés&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;Implémentation :&lt;/strong&gt;&lt;/p&gt;</description></item><item><title/><link>https://gaiaetmarkus.github.io/partie-3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://gaiaetmarkus.github.io/partie-3/</guid><description>&lt;h1 id="partie-3--gestion-détat-avancée-et-composants-personnalisés"&gt;Partie 3 : Gestion d&amp;rsquo;État Avancée et Composants Personnalisés&lt;/h1&gt;
 &lt;h2 id="-objectifs-de-la-partie-3"&gt;🎯 Objectifs de la Partie 3&lt;/h2&gt;
 &lt;p&gt;À la fin de cette partie, vous serez capable de :&lt;/p&gt;
 &lt;ul&gt;
@@ -263,7 +263,7 @@
 &lt;hr&gt;
 &lt;h2 id="-étape-31--gestion-détat-avancée-avec-signals"&gt;🔄 Étape 3.1 : Gestion d&amp;rsquo;État Avancée avec Signals&lt;/h2&gt;
 &lt;h3 id="pourquoi-les-signals-sont-révolutionnaires-"&gt;&lt;strong&gt;Pourquoi les Signals sont révolutionnaires ?&lt;/strong&gt;&lt;/h3&gt;
-&lt;p&gt;Les Signals d&amp;rsquo;Angular 20+ représentent une &lt;strong&gt;révolution&lt;/strong&gt; dans la gestion d&amp;rsquo;état par rapport aux anciennes méthodes :&lt;/p&gt;</description></item><item><title/><link>http://localhost:1313/partie-4/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1313/partie-4/</guid><description>&lt;h1 id="partie-4--tests-performance-et-déploiement"&gt;Partie 4 : Tests, Performance et Déploiement&lt;/h1&gt;
+&lt;p&gt;Les Signals d&amp;rsquo;Angular 20+ représentent une &lt;strong&gt;révolution&lt;/strong&gt; dans la gestion d&amp;rsquo;état par rapport aux anciennes méthodes :&lt;/p&gt;</description></item><item><title/><link>https://gaiaetmarkus.github.io/partie-4/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://gaiaetmarkus.github.io/partie-4/</guid><description>&lt;h1 id="partie-4--tests-performance-et-déploiement"&gt;Partie 4 : Tests, Performance et Déploiement&lt;/h1&gt;
 &lt;h2 id="-objectifs-de-la-partie-4"&gt;🎯 Objectifs de la Partie 4&lt;/h2&gt;
 &lt;p&gt;À la fin de cette partie, vous serez capable de :&lt;/p&gt;
 &lt;ul&gt;
@@ -275,7 +275,7 @@
 &lt;hr&gt;
 &lt;h2 id="-étape-41--tests-unitaires-et-dintégration"&gt;🧪 Étape 4.1 : Tests Unitaires et d&amp;rsquo;Intégration&lt;/h2&gt;
 &lt;h3 id="pourquoi-les-tests-sont-essentiels-"&gt;&lt;strong&gt;Pourquoi les tests sont essentiels ?&lt;/strong&gt;&lt;/h3&gt;
-&lt;p&gt;Les tests garantissent la &lt;strong&gt;qualité du code&lt;/strong&gt; et la &lt;strong&gt;fiabilité de l&amp;rsquo;application&lt;/strong&gt; :&lt;/p&gt;</description></item><item><title/><link>http://localhost:1313/partie-5/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1313/partie-5/</guid><description>&lt;h1 id="partie-5--projet-final---évaluation-pratique"&gt;Partie 5 : Projet Final - Évaluation Pratique&lt;/h1&gt;
+&lt;p&gt;Les tests garantissent la &lt;strong&gt;qualité du code&lt;/strong&gt; et la &lt;strong&gt;fiabilité de l&amp;rsquo;application&lt;/strong&gt; :&lt;/p&gt;</description></item><item><title/><link>https://gaiaetmarkus.github.io/partie-5/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://gaiaetmarkus.github.io/partie-5/</guid><description>&lt;h1 id="partie-5--projet-final---évaluation-pratique"&gt;Partie 5 : Projet Final - Évaluation Pratique&lt;/h1&gt;
 &lt;h2 id="-objectifs-de-lévaluation"&gt;🎯 Objectifs de l&amp;rsquo;évaluation&lt;/h2&gt;
 &lt;p&gt;Cette partie constitue l&amp;rsquo;&lt;strong&gt;évaluation finale&lt;/strong&gt; du module Angular. Les étudiants doivent démontrer leur maîtrise de tous les concepts vus dans les 4 parties précédentes à travers :&lt;/p&gt;
 &lt;ol&gt;
@@ -556,4 +556,4 @@
 &lt;li&gt;&lt;strong&gt;Explications floues&lt;/strong&gt; : Soyez précis dans vos démonstrations&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
-&lt;p&gt;&lt;em&gt;🎓 &lt;strong&gt;Objectif pédagogique :&lt;/strong&gt; Cette évaluation valide votre capacité à créer une application Angular complète, moderne et professionnelle en utilisant les dernières fonctionnalités du framework.&lt;/em&gt;&lt;/p&gt;</description></item><item><title/><link>http://localhost:1313/posts/post-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1313/posts/post-1/</guid><description/></item><item><title/><link>http://localhost:1313/posts/post-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1313/posts/post-2/</guid><description/></item><item><title/><link>http://localhost:1313/posts/post-3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1313/posts/post-3/</guid><description/></item></channel></rss>
+&lt;p&gt;&lt;em&gt;🎓 &lt;strong&gt;Objectif pédagogique :&lt;/strong&gt; Cette évaluation valide votre capacité à créer une application Angular complète, moderne et professionnelle en utilisant les dernières fonctionnalités du framework.&lt;/em&gt;&lt;/p&gt;</description></item><item><title/><link>https://gaiaetmarkus.github.io/posts/post-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://gaiaetmarkus.github.io/posts/post-1/</guid><description/></item><item><title/><link>https://gaiaetmarkus.github.io/posts/post-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://gaiaetmarkus.github.io/posts/post-2/</guid><description/></item><item><title/><link>https://gaiaetmarkus.github.io/posts/post-3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://gaiaetmarkus.github.io/posts/post-3/</guid><description/></item></channel></rss>
