@@ -541,84 +541,57 @@ return &lsquo;&rsquo;;
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#57606a># Vérifier que le composant est bien créé</span>
 </span></span><span style=display:flex><span>ng generate component features/auth/components/login --dry-run
-</span></span></code></pre></td></tr></table></div></div><pre tabindex=0><code>
-### **🔧 Corrections importantes apportées**
-
-#### **Types et interfaces**
-- **User interface** : Ajout de la propriété `name` manquante
-- **RegisterRequest** : Ajout de la propriété `name` pour l&#39;inscription
-- **Passwords object** : Typage correct avec `{ [key: string]: string }`
-
-#### **Signals vs Observables**
-- **Header component** : Utilisation directe du signal `currentUser$` du service
-- **Pas de subscribe** : Les signals n&#39;utilisent pas `.subscribe()` comme les Observables
-
-#### **Gestion d&#39;état**
-- **localStorage** : Persistance de session avec sauvegarde/restauration automatique
-- **Navigation dynamique** : Header adaptatif selon l&#39;état de connexion
-
-### **Explication technique : FormBuilder et FormGroup**
-- **Pattern Builder** : Simplifie la création de formulaires complexes
-- **Type Safety** : TypeScript peut inférer les types des contrôles
-- **Réactivité** : Intégration native avec les Signals d&#39;Angular 20+
-
-#### **📋 FormGroup**
-- **Conteneur de contrôles** : Gère un ensemble de FormControl
-- **Validation globale** : Peut valider l&#39;ensemble du formulaire
-- **État réactif** : Émet des événements lors des changements
-
-#### **🎛️ FormControl**
-- **Contrôle individuel** : Gère un champ de formulaire
-- **Validation locale** : Validators appliqués au niveau du champ
-- **État en temps réel** : dirty, touched, valid, etc.
-
----
-
-## 🛡️ Étape 2.2 : Guards de Protection
-
-### **Pourquoi les Guards ?**
-
-Les Guards permettent de contrôler l&#39;accès aux routes selon des conditions métier :
-
-#### **🔒 Sécurité**
-- **Protection des routes** : Empêcher l&#39;accès non autorisé
-- **Redirection automatique** : Rediriger vers login si non authentifié
-- **Validation des permissions** : Vérifier les rôles utilisateur
-
-#### **🎯 Expérience utilisateur**
-- **Navigation fluide** : Redirection automatique sans erreur 404
-- **Feedback immédiat** : L&#39;utilisateur sait pourquoi il ne peut pas accéder
-- **État cohérent** : L&#39;application reste dans un état valide
-
-### **Création du Guard d&#39;authentification**
-
-```typescript
-// src/app/core/guards/auth.guard.ts
-import { inject } from &#39;@angular/core&#39;;
-import { CanActivateFn, Router } from &#39;@angular/router&#39;;
-import { AuthService } from &#39;../../features/auth/services/auth.service&#39;;
-import { map, take } from &#39;rxjs/operators&#39;;
-
-export const authGuard: CanActivateFn = (route, state) =&gt; {
-  const authService = inject(AuthService);
-  const router = inject(Router);
-
-  return authService.currentUser$.pipe(
-    take(1), // Prendre seulement la première valeur
-    map(user =&gt; {
-      if (user) {
-        return true; // Accès autorisé
-      } else {
-        // Rediriger vers login avec l&#39;URL de retour
-        router.navigate([&#39;/auth/login&#39;], {
-          queryParams: { returnUrl: state.url }
-        });
-        return false; // Accès refusé
-      }
-    })
-  );
-};
-</code></pre><h3 id=création-du-guard-admin><strong>Création du Guard admin</strong></h3><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span></span></code></pre></td></tr></table></div></div><h3 id=-corrections-importantes-apportées><strong>🔧 Corrections importantes apportées</strong></h3><h4 id=types-et-interfaces><strong>Types et interfaces</strong></h4><ul><li><strong>User interface</strong> : Ajout de la propriété <code>name</code> manquante</li><li><strong>RegisterRequest</strong> : Ajout de la propriété <code>name</code> pour l&rsquo;inscription</li><li><strong>Passwords object</strong> : Typage correct avec <code>{ [key: string]: string }</code></li></ul><h4 id=signals-vs-observables><strong>Signals vs Observables</strong></h4><ul><li><strong>Header component</strong> : Utilisation directe du signal <code>currentUser$</code> du service</li><li><strong>Pas de subscribe</strong> : Les signals n&rsquo;utilisent pas <code>.subscribe()</code> comme les Observables</li></ul><h4 id=gestion-d><strong>Gestion d&rsquo;état</strong></h4><ul><li><strong>localStorage</strong> : Persistance de session avec sauvegarde/restauration automatique</li><li><strong>Navigation dynamique</strong> : Header adaptatif selon l&rsquo;état de connexion</li></ul><h3 id=explication-technique--formbuilder-et-formgroup><strong>Explication technique : FormBuilder et FormGroup</strong></h3><ul><li><strong>Pattern Builder</strong> : Simplifie la création de formulaires complexes</li><li><strong>Type Safety</strong> : TypeScript peut inférer les types des contrôles</li><li><strong>Réactivité</strong> : Intégration native avec les Signals d&rsquo;Angular 20+</li></ul><h4 id=-formgroup><strong>📋 FormGroup</strong></h4><ul><li><strong>Conteneur de contrôles</strong> : Gère un ensemble de FormControl</li><li><strong>Validation globale</strong> : Peut valider l&rsquo;ensemble du formulaire</li><li><strong>État réactif</strong> : Émet des événements lors des changements</li></ul><h4 id=-formcontrol><strong>🎛️ FormControl</strong></h4><ul><li><strong>Contrôle individuel</strong> : Gère un champ de formulaire</li><li><strong>Validation locale</strong> : Validators appliqués au niveau du champ</li><li><strong>État en temps réel</strong> : dirty, touched, valid, etc.</li></ul><hr><h2 id=-étape-22--guards-de-protection-1>🛡️ Étape 2.2 : Guards de Protection</h2><h3 id=pourquoi-les-guards-><strong>Pourquoi les Guards ?</strong></h3><p>Les Guards permettent de contrôler l&rsquo;accès aux routes selon des conditions métier :</p><h4 id=-sécurité><strong>🔒 Sécurité</strong></h4><ul><li><strong>Protection des routes</strong> : Empêcher l&rsquo;accès non autorisé</li><li><strong>Redirection automatique</strong> : Rediriger vers login si non authentifié</li><li><strong>Validation des permissions</strong> : Vérifier les rôles utilisateur</li></ul><h4 id=-expérience-utilisateur><strong>🎯 Expérience utilisateur</strong></h4><ul><li><strong>Navigation fluide</strong> : Redirection automatique sans erreur 404</li><li><strong>Feedback immédiat</strong> : L&rsquo;utilisateur sait pourquoi il ne peut pas accéder</li><li><strong>État cohérent</strong> : L&rsquo;application reste dans un état valide</li></ul><h3 id=création-du-guard-d><strong>Création du Guard d&rsquo;authentification</strong></h3><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">25
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-typescript data-lang=typescript><span style=display:flex><span><span style=color:#57606a>// src/app/core/guards/auth.guard.ts
+</span></span></span><span style=display:flex><span><span style=color:#57606a></span><span style=color:#cf222e>import</span> <span style=color:#1f2328>{</span> <span style=color:#1f2328>inject</span> <span style=color:#1f2328>}</span> <span style=color:#cf222e>from</span> <span style=color:#0a3069>&#39;@angular/core&#39;</span><span style=color:#1f2328>;</span>
+</span></span><span style=display:flex><span><span style=color:#cf222e>import</span> <span style=color:#1f2328>{</span> <span style=color:#1f2328>CanActivateFn</span><span style=color:#1f2328>,</span> <span style=color:#1f2328>Router</span> <span style=color:#1f2328>}</span> <span style=color:#cf222e>from</span> <span style=color:#0a3069>&#39;@angular/router&#39;</span><span style=color:#1f2328>;</span>
+</span></span><span style=display:flex><span><span style=color:#cf222e>import</span> <span style=color:#1f2328>{</span> <span style=color:#1f2328>AuthService</span> <span style=color:#1f2328>}</span> <span style=color:#cf222e>from</span> <span style=color:#0a3069>&#39;../../features/auth/services/auth.service&#39;</span><span style=color:#1f2328>;</span>
+</span></span><span style=display:flex><span><span style=color:#cf222e>import</span> <span style=color:#1f2328>{</span> <span style=color:#1f2328>map</span><span style=color:#1f2328>,</span> <span style=color:#1f2328>take</span> <span style=color:#1f2328>}</span> <span style=color:#cf222e>from</span> <span style=color:#0a3069>&#39;rxjs/operators&#39;</span><span style=color:#1f2328>;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#cf222e>export</span> <span style=color:#cf222e>const</span> <span style=color:#1f2328>authGuard</span>: <span style=color:#cf222e>CanActivateFn</span> <span style=color:#0550ae>=</span> <span style=color:#1f2328>(</span><span style=color:#1f2328>route</span><span style=color:#1f2328>,</span> <span style=color:#1f2328>state</span><span style=color:#1f2328>)</span> <span style=color:#0550ae>=&gt;</span> <span style=color:#1f2328>{</span>
+</span></span><span style=display:flex><span>  <span style=color:#cf222e>const</span> <span style=color:#1f2328>authService</span> <span style=color:#0550ae>=</span> <span style=color:#1f2328>inject</span><span style=color:#1f2328>(</span><span style=color:#1f2328>AuthService</span><span style=color:#1f2328>);</span>
+</span></span><span style=display:flex><span>  <span style=color:#cf222e>const</span> <span style=color:#1f2328>router</span> <span style=color:#0550ae>=</span> <span style=color:#1f2328>inject</span><span style=color:#1f2328>(</span><span style=color:#1f2328>Router</span><span style=color:#1f2328>);</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#cf222e>return</span> <span style=color:#1f2328>authService</span><span style=color:#1f2328>.</span><span style=color:#1f2328>currentUser$</span><span style=color:#1f2328>.</span><span style=color:#1f2328>pipe</span><span style=color:#1f2328>(</span>
+</span></span><span style=display:flex><span>    <span style=color:#1f2328>take</span><span style=color:#1f2328>(</span><span style=color:#0550ae>1</span><span style=color:#1f2328>),</span> <span style=color:#57606a>// Prendre seulement la première valeur
+</span></span></span><span style=display:flex><span><span style=color:#57606a></span>    <span style=color:#1f2328>map</span><span style=color:#1f2328>(</span><span style=color:#1f2328>user</span> <span style=color:#0550ae>=&gt;</span> <span style=color:#1f2328>{</span>
+</span></span><span style=display:flex><span>      <span style=color:#cf222e>if</span> <span style=color:#1f2328>(</span><span style=color:#1f2328>user</span><span style=color:#1f2328>)</span> <span style=color:#1f2328>{</span>
+</span></span><span style=display:flex><span>        <span style=color:#cf222e>return</span> <span style=color:#cf222e>true</span><span style=color:#1f2328>;</span> <span style=color:#57606a>// Accès autorisé
+</span></span></span><span style=display:flex><span><span style=color:#57606a></span>      <span style=color:#1f2328>}</span> <span style=color:#cf222e>else</span> <span style=color:#1f2328>{</span>
+</span></span><span style=display:flex><span>        <span style=color:#57606a>// Rediriger vers login avec l&#39;URL de retour
+</span></span></span><span style=display:flex><span><span style=color:#57606a></span>        <span style=color:#1f2328>router</span><span style=color:#1f2328>.</span><span style=color:#1f2328>navigate</span><span style=color:#1f2328>([</span><span style=color:#0a3069>&#39;/auth/login&#39;</span><span style=color:#1f2328>],</span> <span style=color:#1f2328>{</span>
+</span></span><span style=display:flex><span>          <span style=color:#1f2328>queryParams</span><span style=color:#0550ae>:</span> <span style=color:#1f2328>{</span> <span style=color:#1f2328>returnUrl</span>: <span style=color:#cf222e>state.url</span> <span style=color:#1f2328>}</span>
+</span></span><span style=display:flex><span>        <span style=color:#1f2328>});</span>
+</span></span><span style=display:flex><span>        <span style=color:#cf222e>return</span> <span style=color:#cf222e>false</span><span style=color:#1f2328>;</span> <span style=color:#57606a>// Accès refusé
+</span></span></span><span style=display:flex><span><span style=color:#57606a></span>      <span style=color:#1f2328>}</span>
+</span></span><span style=display:flex><span>    <span style=color:#1f2328>})</span>
+</span></span><span style=display:flex><span>  <span style=color:#1f2328>);</span>
+</span></span><span style=display:flex><span><span style=color:#1f2328>};</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=création-du-guard-admin><strong>Création du Guard admin</strong></h3><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
@@ -754,62 +727,47 @@ export const authGuard: CanActivateFn = (route, state) =&gt; {
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#57606a># Vérifier que les guards sont bien appliqués</span>
 </span></span><span style=display:flex><span>ng build --configuration development
-</span></span></code></pre></td></tr></table></div></div><pre tabindex=0><code>
-### **Explication technique : CanActivateFn vs CanActivate**
-
-#### **🆕 CanActivateFn (Angular 14+)**
-- **Functional Guards** : Plus moderne et flexible
-- **Injection simplifiée** : Utilise `inject()` au lieu du constructeur
-- **Tree-shaking** : Meilleure optimisation du bundle
-- **Composition** : Plus facile de combiner plusieurs guards
-
-#### **🔄 Observable vs Promise**
-- **Observable** : Permet l&#39;annulation et la réactivité
-- **take(1)** : Évite les fuites mémoire en se désabonnant automatiquement
-- **map()** : Transforme la valeur sans créer de nouvel Observable
-
----
-
-## 🔄 Étape 2.3 : Lazy Loading Avancé
-
-### **Pourquoi le Lazy Loading ?**
-
-Le lazy loading améliore significativement les performances :
-
-#### **⚡ Performance**
-- **Bundle initial réduit** : Seuls les modules nécessaires sont chargés
-- **Chargement à la demande** : Les modules se chargent quand on en a besoin
-- **Cache intelligent** : Les modules restent en cache après premier chargement
-
-#### **📱 Expérience mobile**
-- **Temps de chargement réduit** : Particulièrement important sur mobile
-- **Bande passante économisée** : Seulement ce qui est nécessaire
-- **Batterie préservée** : Moins de traitement initial
-
-### **Configuration du lazy loading**
-
-```typescript
-// src/app/features/auth/auth.routes.ts
-import { Routes } from &#39;@angular/router&#39;;
-import { LoginComponent } from &#39;./components/login.component&#39;;
-import { RegisterComponent } from &#39;./components/register.component&#39;;
-
-export const AUTH_ROUTES: Routes = [
-  {
-    path: &#39;login&#39;,
-    component: LoginComponent
-  },
-  {
-    path: &#39;register&#39;,
-    component: RegisterComponent
-  },
-  {
-    path: &#39;&#39;,
-    redirectTo: &#39;login&#39;,
-    pathMatch: &#39;full&#39;
-  }
-];
-</code></pre><h3 id=composant-register-avec-validation-avancée><strong>Composant Register avec validation avancée</strong></h3><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  1
+</span></span></code></pre></td></tr></table></div></div><h3 id=explication-technique--canactivatefn-vs-canactivate><strong>Explication technique : CanActivateFn vs CanActivate</strong></h3><h4 id=-canactivatefn-angular-14><strong>🆕 CanActivateFn (Angular 14+)</strong></h4><ul><li><strong>Functional Guards</strong> : Plus moderne et flexible</li><li><strong>Injection simplifiée</strong> : Utilise <code>inject()</code> au lieu du constructeur</li><li><strong>Tree-shaking</strong> : Meilleure optimisation du bundle</li><li><strong>Composition</strong> : Plus facile de combiner plusieurs guards</li></ul><h4 id=-observable-vs-promise><strong>🔄 Observable vs Promise</strong></h4><ul><li><strong>Observable</strong> : Permet l&rsquo;annulation et la réactivité</li><li><strong>take(1)</strong> : Évite les fuites mémoire en se désabonnant automatiquement</li><li><strong>map()</strong> : Transforme la valeur sans créer de nouvel Observable</li></ul><hr><h2 id=-étape-23--lazy-loading-avancé-1>🔄 Étape 2.3 : Lazy Loading Avancé</h2><h3 id=pourquoi-le-lazy-loading-><strong>Pourquoi le Lazy Loading ?</strong></h3><p>Le lazy loading améliore significativement les performances :</p><h4 id=-performance><strong>⚡ Performance</strong></h4><ul><li><strong>Bundle initial réduit</strong> : Seuls les modules nécessaires sont chargés</li><li><strong>Chargement à la demande</strong> : Les modules se chargent quand on en a besoin</li><li><strong>Cache intelligent</strong> : Les modules restent en cache après premier chargement</li></ul><h4 id=-expérience-mobile><strong>📱 Expérience mobile</strong></h4><ul><li><strong>Temps de chargement réduit</strong> : Particulièrement important sur mobile</li><li><strong>Bande passante économisée</strong> : Seulement ce qui est nécessaire</li><li><strong>Batterie préservée</strong> : Moins de traitement initial</li></ul><h3 id=configuration-du-lazy-loading><strong>Configuration du lazy loading</strong></h3><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-typescript data-lang=typescript><span style=display:flex><span><span style=color:#57606a>// src/app/features/auth/auth.routes.ts
+</span></span></span><span style=display:flex><span><span style=color:#57606a></span><span style=color:#cf222e>import</span> <span style=color:#1f2328>{</span> <span style=color:#1f2328>Routes</span> <span style=color:#1f2328>}</span> <span style=color:#cf222e>from</span> <span style=color:#0a3069>&#39;@angular/router&#39;</span><span style=color:#1f2328>;</span>
+</span></span><span style=display:flex><span><span style=color:#cf222e>import</span> <span style=color:#1f2328>{</span> <span style=color:#1f2328>LoginComponent</span> <span style=color:#1f2328>}</span> <span style=color:#cf222e>from</span> <span style=color:#0a3069>&#39;./components/login.component&#39;</span><span style=color:#1f2328>;</span>
+</span></span><span style=display:flex><span><span style=color:#cf222e>import</span> <span style=color:#1f2328>{</span> <span style=color:#1f2328>RegisterComponent</span> <span style=color:#1f2328>}</span> <span style=color:#cf222e>from</span> <span style=color:#0a3069>&#39;./components/register.component&#39;</span><span style=color:#1f2328>;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#cf222e>export</span> <span style=color:#cf222e>const</span> <span style=color:#1f2328>AUTH_ROUTES</span>: <span style=color:#cf222e>Routes</span> <span style=color:#0550ae>=</span> <span style=color:#1f2328>[</span>
+</span></span><span style=display:flex><span>  <span style=color:#1f2328>{</span>
+</span></span><span style=display:flex><span>    <span style=color:#1f2328>path</span><span style=color:#0550ae>:</span> <span style=color:#0a3069>&#39;login&#39;</span><span style=color:#1f2328>,</span>
+</span></span><span style=display:flex><span>    <span style=color:#1f2328>component</span>: <span style=color:#cf222e>LoginComponent</span>
+</span></span><span style=display:flex><span>  <span style=color:#1f2328>},</span>
+</span></span><span style=display:flex><span>  <span style=color:#1f2328>{</span>
+</span></span><span style=display:flex><span>    <span style=color:#1f2328>path</span><span style=color:#0550ae>:</span> <span style=color:#0a3069>&#39;register&#39;</span><span style=color:#1f2328>,</span>
+</span></span><span style=display:flex><span>    <span style=color:#1f2328>component</span>: <span style=color:#cf222e>RegisterComponent</span>
+</span></span><span style=display:flex><span>  <span style=color:#1f2328>},</span>
+</span></span><span style=display:flex><span>  <span style=color:#1f2328>{</span>
+</span></span><span style=display:flex><span>    <span style=color:#1f2328>path</span><span style=color:#0550ae>:</span> <span style=color:#0a3069>&#39;&#39;</span><span style=color:#1f2328>,</span>
+</span></span><span style=display:flex><span>    <span style=color:#1f2328>redirectTo</span><span style=color:#0550ae>:</span> <span style=color:#0a3069>&#39;login&#39;</span><span style=color:#1f2328>,</span>
+</span></span><span style=display:flex><span>    <span style=color:#1f2328>pathMatch</span><span style=color:#0550ae>:</span> <span style=color:#0a3069>&#39;full&#39;</span>
+</span></span><span style=display:flex><span>  <span style=color:#1f2328>}</span>
+</span></span><span style=display:flex><span><span style=color:#1f2328>];</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=composant-register-avec-validation-avancée><strong>Composant Register avec validation avancée</strong></h3><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  1
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  2
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  3
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">  4
@@ -1801,85 +1759,83 @@ export const AUTH_ROUTES: Routes = [
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#57606a># Vérifier les données</span>
 </span></span><span style=display:flex><span>F12 → Application → Local Storage → Vérifier le token
-</span></span></code></pre></td></tr></table></div></div><pre tabindex=0><code>
-### **Explication technique : Signals vs Observables**
-
-#### **📡 Signals (Angular 20+)**
-- **Performance optimale** : Détection de changements ultra-rapide
-- **Syntaxe simplifiée** : `signal()` et `computed()` plus intuitifs
-- **Tree-shaking** : Meilleure optimisation du bundle
-- **Réactivité granulaire** : Seuls les composants qui utilisent le signal se mettent à jour
-
-#### **🔄 Observables (RxJS)**
-- **Puissance** : Opérateurs avancés (map, filter, switchMap, etc.)
-- **Annulation** : Possibilité d&#39;annuler les requêtes
-- **Composition** : Combinaison de plusieurs streams
-- **Maturité** : Écosystème riche et stable
-
-#### **🎯 Quand utiliser quoi ?**
-- **Signals** : État local simple, performance critique
-- **Observables** : Requêtes HTTP, événements complexes, composition de streams
-
----
-
-## 🔧 Étape 2.5 : Intercepteurs HTTP
-
-### **Pourquoi les Intercepteurs ?**
-
-Les intercepteurs permettent de traiter toutes les requêtes HTTP de manière centralisée :
-
-#### **🔐 Authentification**
-- **Ajout automatique des tokens** : Pas besoin de les ajouter manuellement
-- **Gestion des erreurs 401** : Redirection automatique vers login
-- **Refresh des tokens** : Renouvellement transparent
-
-#### **📊 Monitoring**
-- **Logs centralisés** : Toutes les requêtes sont loggées
-- **Métriques** : Temps de réponse, taux d&#39;erreur
-- **Debugging** : Facilite le débogage des problèmes réseau
-
-### **Création de l&#39;intercepteur d&#39;authentification**
-
-```typescript
-// src/app/core/interceptors/auth.interceptor.ts
-import { Injectable } from &#39;@angular/core&#39;;
-import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpErrorResponse } from &#39;@angular/common/http&#39;;
-import { Observable, throwError } from &#39;rxjs&#39;;
-import { catchError, switchMap } from &#39;rxjs/operators&#39;;
-import { AuthService } from &#39;../../features/auth/services/auth.service&#39;;
-import { Router } from &#39;@angular/router&#39;;
-
-@Injectable()
-export class AuthInterceptor implements HttpInterceptor {
-  constructor(
-    private authService: AuthService,
-    private router: Router
-  ) {}
-
-  intercept(request: HttpRequest&lt;unknown&gt;, next: HttpHandler): Observable&lt;HttpEvent&lt;unknown&gt;&gt; {
-    // Ajouter le token d&#39;authentification si disponible
-    const token = this.authService.getToken();
-    if (token) {
-      request = request.clone({
-        setHeaders: {
-          Authorization: `Bearer ${token}`
-        }
-      });
-    }
-
-    return next.handle(request).pipe(
-      catchError((error: HttpErrorResponse) =&gt; {
-        if (error.status === 401) {
-          // Token expiré ou invalide
-          this.authService.logout();
-          this.router.navigate([&#39;/auth/login&#39;]);
-        }
-        return throwError(() =&gt; error);
-      })
-    );
-  }
-}
-</code></pre><h3 id=configuration-de-l><strong>Configuration de l&rsquo;intercepteur</strong></h3><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span></span></code></pre></td></tr></table></div></div><h3 id=explication-technique--signals-vs-observables><strong>Explication technique : Signals vs Observables</strong></h3><h4 id=-signals-angular-20><strong>📡 Signals (Angular 20+)</strong></h4><ul><li><strong>Performance optimale</strong> : Détection de changements ultra-rapide</li><li><strong>Syntaxe simplifiée</strong> : <code>signal()</code> et <code>computed()</code> plus intuitifs</li><li><strong>Tree-shaking</strong> : Meilleure optimisation du bundle</li><li><strong>Réactivité granulaire</strong> : Seuls les composants qui utilisent le signal se mettent à jour</li></ul><h4 id=-observables-rxjs><strong>🔄 Observables (RxJS)</strong></h4><ul><li><strong>Puissance</strong> : Opérateurs avancés (map, filter, switchMap, etc.)</li><li><strong>Annulation</strong> : Possibilité d&rsquo;annuler les requêtes</li><li><strong>Composition</strong> : Combinaison de plusieurs streams</li><li><strong>Maturité</strong> : Écosystème riche et stable</li></ul><h4 id=-quand-utiliser-quoi-><strong>🎯 Quand utiliser quoi ?</strong></h4><ul><li><strong>Signals</strong> : État local simple, performance critique</li><li><strong>Observables</strong> : Requêtes HTTP, événements complexes, composition de streams</li></ul><hr><h2 id=-étape-25--intercepteurs-http-1>🔧 Étape 2.5 : Intercepteurs HTTP</h2><h3 id=pourquoi-les-intercepteurs-><strong>Pourquoi les Intercepteurs ?</strong></h3><p>Les intercepteurs permettent de traiter toutes les requêtes HTTP de manière centralisée :</p><h4 id=-authentification><strong>🔐 Authentification</strong></h4><ul><li><strong>Ajout automatique des tokens</strong> : Pas besoin de les ajouter manuellement</li><li><strong>Gestion des erreurs 401</strong> : Redirection automatique vers login</li><li><strong>Refresh des tokens</strong> : Renouvellement transparent</li></ul><h4 id=-monitoring><strong>📊 Monitoring</strong></h4><ul><li><strong>Logs centralisés</strong> : Toutes les requêtes sont loggées</li><li><strong>Métriques</strong> : Temps de réponse, taux d&rsquo;erreur</li><li><strong>Debugging</strong> : Facilite le débogage des problèmes réseau</li></ul><h3 id=création-de-l><strong>Création de l&rsquo;intercepteur d&rsquo;authentification</strong></h3><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">32
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">33
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">34
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">35
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">36
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">37
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">38
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-typescript data-lang=typescript><span style=display:flex><span><span style=color:#57606a>// src/app/core/interceptors/auth.interceptor.ts
+</span></span></span><span style=display:flex><span><span style=color:#57606a></span><span style=color:#cf222e>import</span> <span style=color:#1f2328>{</span> <span style=color:#1f2328>Injectable</span> <span style=color:#1f2328>}</span> <span style=color:#cf222e>from</span> <span style=color:#0a3069>&#39;@angular/core&#39;</span><span style=color:#1f2328>;</span>
+</span></span><span style=display:flex><span><span style=color:#cf222e>import</span> <span style=color:#1f2328>{</span> <span style=color:#1f2328>HttpInterceptor</span><span style=color:#1f2328>,</span> <span style=color:#1f2328>HttpRequest</span><span style=color:#1f2328>,</span> <span style=color:#1f2328>HttpHandler</span><span style=color:#1f2328>,</span> <span style=color:#1f2328>HttpEvent</span><span style=color:#1f2328>,</span> <span style=color:#1f2328>HttpErrorResponse</span> <span style=color:#1f2328>}</span> <span style=color:#cf222e>from</span> <span style=color:#0a3069>&#39;@angular/common/http&#39;</span><span style=color:#1f2328>;</span>
+</span></span><span style=display:flex><span><span style=color:#cf222e>import</span> <span style=color:#1f2328>{</span> <span style=color:#1f2328>Observable</span><span style=color:#1f2328>,</span> <span style=color:#1f2328>throwError</span> <span style=color:#1f2328>}</span> <span style=color:#cf222e>from</span> <span style=color:#0a3069>&#39;rxjs&#39;</span><span style=color:#1f2328>;</span>
+</span></span><span style=display:flex><span><span style=color:#cf222e>import</span> <span style=color:#1f2328>{</span> <span style=color:#1f2328>catchError</span><span style=color:#1f2328>,</span> <span style=color:#1f2328>switchMap</span> <span style=color:#1f2328>}</span> <span style=color:#cf222e>from</span> <span style=color:#0a3069>&#39;rxjs/operators&#39;</span><span style=color:#1f2328>;</span>
+</span></span><span style=display:flex><span><span style=color:#cf222e>import</span> <span style=color:#1f2328>{</span> <span style=color:#1f2328>AuthService</span> <span style=color:#1f2328>}</span> <span style=color:#cf222e>from</span> <span style=color:#0a3069>&#39;../../features/auth/services/auth.service&#39;</span><span style=color:#1f2328>;</span>
+</span></span><span style=display:flex><span><span style=color:#cf222e>import</span> <span style=color:#1f2328>{</span> <span style=color:#1f2328>Router</span> <span style=color:#1f2328>}</span> <span style=color:#cf222e>from</span> <span style=color:#0a3069>&#39;@angular/router&#39;</span><span style=color:#1f2328>;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#cf222e>@Injectable</span><span style=color:#1f2328>()</span>
+</span></span><span style=display:flex><span><span style=color:#cf222e>export</span> <span style=color:#cf222e>class</span> <span style=color:#1f2328>AuthInterceptor</span> <span style=color:#cf222e>implements</span> <span style=color:#1f2328>HttpInterceptor</span> <span style=color:#1f2328>{</span>
+</span></span><span style=display:flex><span>  <span style=color:#cf222e>constructor</span><span style=color:#1f2328>(</span>
+</span></span><span style=display:flex><span>    <span style=color:#cf222e>private</span> <span style=color:#1f2328>authService</span>: <span style=color:#cf222e>AuthService</span><span style=color:#1f2328>,</span>
+</span></span><span style=display:flex><span>    <span style=color:#cf222e>private</span> <span style=color:#1f2328>router</span>: <span style=color:#cf222e>Router</span>
+</span></span><span style=display:flex><span>  <span style=color:#1f2328>)</span> <span style=color:#1f2328>{}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#1f2328>intercept</span><span style=color:#1f2328>(</span><span style=color:#1f2328>request</span>: <span style=color:#cf222e>HttpRequest</span><span style=color:#1f2328>&lt;</span><span style=color:#0550ae>unknown</span><span style=color:#1f2328>&gt;,</span> <span style=color:#1f2328>next</span>: <span style=color:#cf222e>HttpHandler</span><span style=color:#1f2328>)</span><span style=color:#0550ae>:</span> <span style=color:#1f2328>Observable</span><span style=color:#1f2328>&lt;</span><span style=color:#0550ae>HttpEvent</span><span style=color:#1f2328>&lt;</span><span style=color:#0550ae>unknown</span><span style=color:#1f2328>&gt;&gt;</span> <span style=color:#1f2328>{</span>
+</span></span><span style=display:flex><span>    <span style=color:#57606a>// Ajouter le token d&#39;authentification si disponible
+</span></span></span><span style=display:flex><span><span style=color:#57606a></span>    <span style=color:#cf222e>const</span> <span style=color:#1f2328>token</span> <span style=color:#0550ae>=</span> <span style=color:#cf222e>this</span><span style=color:#1f2328>.</span><span style=color:#1f2328>authService</span><span style=color:#1f2328>.</span><span style=color:#1f2328>getToken</span><span style=color:#1f2328>();</span>
+</span></span><span style=display:flex><span>    <span style=color:#cf222e>if</span> <span style=color:#1f2328>(</span><span style=color:#1f2328>token</span><span style=color:#1f2328>)</span> <span style=color:#1f2328>{</span>
+</span></span><span style=display:flex><span>      <span style=color:#1f2328>request</span> <span style=color:#0550ae>=</span> <span style=color:#1f2328>request</span><span style=color:#1f2328>.</span><span style=color:#1f2328>clone</span><span style=color:#1f2328>({</span>
+</span></span><span style=display:flex><span>        <span style=color:#1f2328>setHeaders</span><span style=color:#0550ae>:</span> <span style=color:#1f2328>{</span>
+</span></span><span style=display:flex><span>          <span style=color:#1f2328>Authorization</span><span style=color:#0550ae>:</span> <span style=color:#0a3069>`Bearer </span><span style=color:#0a3069>${</span><span style=color:#1f2328>token</span><span style=color:#0a3069>}</span><span style=color:#0a3069>`</span>
+</span></span><span style=display:flex><span>        <span style=color:#1f2328>}</span>
+</span></span><span style=display:flex><span>      <span style=color:#1f2328>});</span>
+</span></span><span style=display:flex><span>    <span style=color:#1f2328>}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#cf222e>return</span> <span style=color:#1f2328>next</span><span style=color:#1f2328>.</span><span style=color:#1f2328>handle</span><span style=color:#1f2328>(</span><span style=color:#1f2328>request</span><span style=color:#1f2328>).</span><span style=color:#1f2328>pipe</span><span style=color:#1f2328>(</span>
+</span></span><span style=display:flex><span>      <span style=color:#1f2328>catchError</span><span style=color:#1f2328>((</span><span style=color:#1f2328>error</span>: <span style=color:#cf222e>HttpErrorResponse</span><span style=color:#1f2328>)</span> <span style=color:#0550ae>=&gt;</span> <span style=color:#1f2328>{</span>
+</span></span><span style=display:flex><span>        <span style=color:#cf222e>if</span> <span style=color:#1f2328>(</span><span style=color:#1f2328>error</span><span style=color:#1f2328>.</span><span style=color:#1f2328>status</span> <span style=color:#0550ae>===</span> <span style=color:#0550ae>401</span><span style=color:#1f2328>)</span> <span style=color:#1f2328>{</span>
+</span></span><span style=display:flex><span>          <span style=color:#57606a>// Token expiré ou invalide
+</span></span></span><span style=display:flex><span><span style=color:#57606a></span>          <span style=color:#cf222e>this</span><span style=color:#1f2328>.</span><span style=color:#1f2328>authService</span><span style=color:#1f2328>.</span><span style=color:#1f2328>logout</span><span style=color:#1f2328>();</span>
+</span></span><span style=display:flex><span>          <span style=color:#cf222e>this</span><span style=color:#1f2328>.</span><span style=color:#1f2328>router</span><span style=color:#1f2328>.</span><span style=color:#1f2328>navigate</span><span style=color:#1f2328>([</span><span style=color:#0a3069>&#39;/auth/login&#39;</span><span style=color:#1f2328>]);</span>
+</span></span><span style=display:flex><span>        <span style=color:#1f2328>}</span>
+</span></span><span style=display:flex><span>        <span style=color:#cf222e>return</span> <span style=color:#1f2328>throwError</span><span style=color:#1f2328>(()</span> <span style=color:#0550ae>=&gt;</span> <span style=color:#1f2328>error</span><span style=color:#1f2328>);</span>
+</span></span><span style=display:flex><span>      <span style=color:#1f2328>})</span>
+</span></span><span style=display:flex><span>    <span style=color:#1f2328>);</span>
+</span></span><span style=display:flex><span>  <span style=color:#1f2328>}</span>
+</span></span><span style=display:flex><span><span style=color:#1f2328>}</span>
+</span></span></code></pre></td></tr></table></div></div><h3 id=configuration-de-l><strong>Configuration de l&rsquo;intercepteur</strong></h3><div class=highlight><div style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
 </span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
