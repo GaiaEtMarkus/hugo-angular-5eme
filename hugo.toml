@@ -44,6 +44,7 @@ theme = 'angular-course-theme'
     [markup.goldmark.renderer]
       unsafe = true
   [markup.highlight]
-    style = "github"
+    style = "monokai"
     lineNos = true
     lineNumbersInTable = true
+    noClasses = false
