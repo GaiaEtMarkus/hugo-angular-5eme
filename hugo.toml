@@ -2,6 +2,7 @@ baseURL = 'https://gaiaetmarkus.github.io/'
 languageCode = 'fr-fr'
 title = 'Cours Angular 5ème année'
 theme = 'angular-course-theme'
+uglyURLs = true
 
 [params]
   description = "Cours complet Angular 20+ pour les étudiants de 5ème année"
@@ -35,7 +36,7 @@ theme = 'angular-course-theme'
     weight = 5
   [[menu.main]]
     identifier = "partie-5"
-    name = "Projet"
+    name = "Partie 5"
     url = "/partie-5/"
     weight = 6
 
