@@ -35,5 +35,5 @@ jobs: # on déclare les groupes d'actions
     steps:
 
       - name: success log
-        run: echo "Success bro : $(date)"
+        run: echo "Success bro at $(date)"
 
