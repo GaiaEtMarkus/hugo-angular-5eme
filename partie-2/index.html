@@ -282,7 +282,8 @@ import { AuthService } from &lsquo;../../services/auth.service&rsquo;;</p><p>@Co
 selector: &lsquo;app-login&rsquo;,
 standalone: true,
 imports: [CommonModule, ReactiveFormsModule],
-template: `<div class="min-h-screen w-fit flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8"><div class="w-full space-y-8"><div><h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">Connexion à votre compte</h2></div></p><pre><code>    &lt;form [formGroup]=&quot;loginForm&quot; (ngSubmit)=&quot;onSubmit()&quot; class=&quot;mt-8 space-y-6&quot;&gt;
+template: `<div class="min-h-screen w-fit text-black
+flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8"><div class="w-full space-y-8"><div><h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">Connexion à votre compte</h2></div></p><pre><code>    &lt;form [formGroup]=&quot;loginForm&quot; (ngSubmit)=&quot;onSubmit()&quot; class=&quot;mt-8 space-y-6&quot;&gt;
       &lt;!-- Email --&gt;
       &lt;div&gt;
         &lt;label for=&quot;email&quot; class=&quot;block text-sm font-medium text-gray-700&quot;&gt;
@@ -1020,7 +1021,7 @@ export const AUTH_ROUTES: Routes = [
 </span></span><span style=display:flex><span>  <span style=color:#1f2328>standalone</span>: <span style=color:#cf222e>true</span><span style=color:#1f2328>,</span>
 </span></span><span style=display:flex><span>  <span style=color:#1f2328>imports</span><span style=color:#0550ae>:</span> <span style=color:#1f2328>[</span><span style=color:#1f2328>CommonModule</span><span style=color:#1f2328>,</span> <span style=color:#1f2328>ReactiveFormsModule</span><span style=color:#1f2328>],</span>
 </span></span><span style=display:flex><span>  <span style=color:#1f2328>template</span><span style=color:#0550ae>:</span> <span style=color:#0a3069>`
-</span></span></span><span style=display:flex><span><span style=color:#0a3069>    &lt;div class=&#34;min-h-screen w-fit flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8&#34;&gt;
+</span></span></span><span style=display:flex><span><span style=color:#0a3069>    &lt;div class=&#34;min-h-screen text-black w-fit flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8&#34;&gt;
 </span></span></span><span style=display:flex><span><span style=color:#0a3069>      &lt;div class=&#34;w-full space-y-8&#34;&gt;
 </span></span></span><span style=display:flex><span><span style=color:#0a3069>        &lt;div&gt;
 </span></span></span><span style=display:flex><span><span style=color:#0a3069>          &lt;h2 class=&#34;mt-6 text-center text-3xl font-extrabold text-gray-900&#34;&gt;
