@@ -42,7 +42,7 @@
         }
         
         .prose h1, .prose h2, .prose h3, .prose h4 {
-            color: #f0f0f0;
+            color: black;
             font-weight: 700;
             display: block;
             width: 100%;
@@ -736,7 +736,7 @@ if (field.errors[&lsquo;minlength&rsquo;]) return <code>Minimum ${field.errors['
 return &lsquo;&rsquo;;
 }
 }</p>
-<h3 id="mise-à-jour-du-header-avec-gestion-d"><strong>Mise à jour du header avec gestion d&rsquo;authentification</strong></h3>
+<h3 id="mise-à-jour-du-header-avec-gestion-d" class="text-black"><strong>Mise à jour du header avec gestion d&rsquo;authentification</strong></h3>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
@@ -889,8 +889,8 @@ return &lsquo;&rsquo;;
 </span></span></code></pre></td></tr></table>
 </div>
 </div><hr>
-<h2 id="-test-fonctionnel---étape-21--formulaires-réactifs">🧪 Test fonctionnel - Étape 2.1 : Formulaires Réactifs</h2>
-<h3 id="vérifications-à-effectuer-"><strong>Vérifications à effectuer :</strong></h3>
+<h2 id="-test-fonctionnel---étape-21--formulaires-réactifs" class="text-black">🧪 Test fonctionnel - Étape 2.1 : Formulaires Réactifs</h2>
+<h3 id="vérifications-à-effectuer-" class="text-black"><strong>Vérifications à effectuer :</strong></h3>
 <h4 id="1-test-du-formulaire-de-login"><strong>1. Test du formulaire de login</strong></h4>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -1023,7 +1023,7 @@ export const authGuard: CanActivateFn = (route, state) =&gt; {
     })
   );
 };
-</code></pre><h3 id="création-du-guard-admin"><strong>Création du Guard admin</strong></h3>
+</code></pre><h3 id="création-du-guard-admin" class="text-black"><strong>Création du Guard admin</strong></h3>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
@@ -1076,7 +1076,7 @@ export const authGuard: CanActivateFn = (route, state) =&gt; {
 </span></span><span style="display:flex;"><span><span style="color:#1f2328">};</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="application-des-guards-aux-routes"><strong>Application des Guards aux routes</strong></h3>
+</div><h3 id="application-des-guards-aux-routes" class="text-black"><strong>Application des Guards aux routes</strong></h3>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
@@ -1161,7 +1161,7 @@ export const authGuard: CanActivateFn = (route, state) =&gt; {
 <li><input disabled="" type="checkbox"> L&rsquo;URL de retour est sauvegardée dans les query params</li>
 <li><input disabled="" type="checkbox"> Après connexion, retour automatique vers <code>/todos</code></li>
 </ul>
-<h4 id="2-test-du-adminguard"><strong>2. Test du AdminGuard</strong></h4>
+<h4 id="2-test-du-adminguard" class="text-black"><strong>2. Test du AdminGuard</strong></h4>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -1182,7 +1182,7 @@ export const authGuard: CanActivateFn = (route, state) =&gt; {
 <li><input disabled="" type="checkbox"> Se connecter avec <code>admin@example.com</code> / <code>admin123</code></li>
 <li><input disabled="" type="checkbox"> Accès à <code>/admin</code> autorisé</li>
 </ul>
-<h4 id="3-test-de-la-navigation"><strong>3. Test de la navigation</strong></h4>
+<h4 id="3-test-de-la-navigation" class="text-black"><strong>3. Test de la navigation</strong></h4>
 <ul>
 <li><input disabled="" type="checkbox"> Cliquer sur &ldquo;Admin&rdquo; dans le header (si connecté en tant qu&rsquo;admin)</li>
 <li><input disabled="" type="checkbox"> Vérifier que la navigation fonctionne correctement</li>
@@ -1260,7 +1260,7 @@ export const AUTH_ROUTES: Routes = [
     pathMatch: &#39;full&#39;
   }
 ];
-</code></pre><h3 id="composant-register-avec-validation-avancée"><strong>Composant Register avec validation avancée</strong></h3>
+</code></pre><h3 id="composant-register-avec-validation-avancée" class="text-black"><strong>Composant Register avec validation avancée</strong></h3>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  1
@@ -1661,7 +1661,7 @@ export const AUTH_ROUTES: Routes = [
 </ul>
 <hr>
 <h2 id="-test-fonctionnel---étape-23--lazy-loading-et-register">🧪 Test fonctionnel - Étape 2.3 : Lazy Loading et Register</h2>
-<h3 id="vérifications-à-effectuer--1"><strong>Vérifications à effectuer :</strong></h3>
+<h3 id="vérifications-à-effectuer--1" class="text-black"><strong>Vérifications à effectuer :</strong></h3>
 <h4 id="1-test-du-formulaire-de-register"><strong>1. Test du formulaire de register</strong></h4>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -2510,7 +2510,7 @@ export class AuthInterceptor implements HttpInterceptor {
 </ol>
 <hr>
 <h2 id="-test-fonctionnel---étape-25--intercepteurs-http">🧪 Test fonctionnel - Étape 2.5 : Intercepteurs HTTP</h2>
-<h3 id="vérifications-à-effectuer--2"><strong>Vérifications à effectuer :</strong></h3>
+<h3 id="vérifications-à-effectuer--2" class="text-black"><strong>Vérifications à effectuer :</strong></h3>
 <h4 id="1-test-de-l"><strong>1. Test de l&rsquo;intercepteur d&rsquo;authentification</strong></h4>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
