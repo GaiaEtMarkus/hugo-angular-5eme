@@ -1,8 +1,7 @@
-baseURL = 'https://gaiaetmarkus.github.io/'
+baseURL = 'https://gaiaetmarkus.github.io/hugo-angular-5eme/'
 languageCode = 'fr-fr'
 title = 'Cours Angular 5ème année'
 theme = 'angular-course-theme'
-uglyURLs = true
 
 [params]
   description = "Cours complet Angular 20+ pour les étudiants de 5ème année"
