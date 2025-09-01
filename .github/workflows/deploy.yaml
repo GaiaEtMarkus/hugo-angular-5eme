@@ -6,9 +6,7 @@ on:
       - master  # branche ou le push va déclenche le deploy
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
       
 jobs: # on déclare les groupes d'actions
   build:
