@@ -533,7 +533,6 @@ F12 → Console
 # Vérifier que le composant est bien créé
 ng generate component features/auth/components/login --dry-run
 ```
-```
 
 ### **🔧 Corrections importantes apportées**
 
@@ -712,7 +711,6 @@ F12 → Console → Vérifier les logs de navigation
 
 # Vérifier que les guards sont bien appliqués
 ng build --configuration development
-```
 ```
 
 ### **Explication technique : CanActivateFn vs CanActivate**
@@ -1371,7 +1369,6 @@ F12 → Console → Vérifier les logs d'authentification
 
 # Vérifier les données
 F12 → Application → Local Storage → Vérifier le token
-```
 ```
 
 ### **Explication technique : Signals vs Observables**
