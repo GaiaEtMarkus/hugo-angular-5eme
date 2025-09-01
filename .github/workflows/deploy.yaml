@@ -1,0 +1,40 @@
+name: Deploy Hugo site to Pages #nom de l'action
+
+on:
+  push:
+    branches:
+      - master  # branche ou le push va déclenche le deploy
+      
+jobs: # on déclare les groupes d'actions
+  build:
+    runs-on: ubuntu-latest 
+    steps:
+      
+      - name: Checkout repo
+        uses: actions/checkout@v4 # action qui clone le projet dans l'instance en cours
+            
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3 #action qui récupère l'action hugo
+        with: # la configuration
+          hugo-version: 'latest'
+          extended: true
+
+
+      - name: Build site
+        run: hugo --minify # créé un build statique de l'appli dans /public
+
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }} # deja présent nativement via mon interface github
+          publish_dir: ./public # la cible du déploiement
+  log:
+    runs-on: ubuntu-latest
+    needs: build #ce job se lancera seulement lorsque le job sera fini avec succès
+    steps:
+
+      - name: success log
+        run: echo "Success bro : $(date)"
+
