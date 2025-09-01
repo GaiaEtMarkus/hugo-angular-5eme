@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="fr-fr">
-<head>
-	<meta name="generator" content="Hugo 0.149.0"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cours Angular 5ème année</title>
+    <title> - Cours Angular 5ème année</title>
     <meta name="description" content="Cours complet Angular 20&#43; pour les étudiants de 5ème année">
     
     
@@ -192,10 +191,13 @@
     <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <article class="prose prose-lg mx-auto text-gray-100">
             
+  <h1></h1>
+
   
   
-    <h2><a href="/introduction/"></a></h2>
-    <h1 id="introduction-à-angular">Introduction à Angular</h1>
+  <time datetime="0001-01-01T00:00:00&#43;00:00">January 1, 1</time>
+
+  <h1 id="introduction-à-angular">Introduction à Angular</h1>
 <h2 id="-histoire-dangular">📚 Histoire d&rsquo;Angular</h2>
 <h3 id="les-origines-2010-2016">Les origines (2010-2016)</h3>
 <ul>
@@ -222,6 +224,12 @@
 <li><strong>Performance</strong> : Course à l&rsquo;optimisation continue</li>
 </ol>
 <h3 id="cycle-de-release-moderne-"><strong>Cycle de release moderne :</strong></h3>
+<ul>
+<li><strong>Versions majeures</strong> : Tous les 6 mois (novembre et mai)</li>
+<li><strong>Versions mineures</strong> : 1-3 releases par version majeure</li>
+<li><strong>Patches</strong> : Corrections de bugs selon les besoins</li>
+<li><strong>LTS</strong> : Support Long Term pour les versions paires (18, 20, etc.)</li>
+</ul>
 <h3 id="stabilité-garantie-"><strong>Stabilité garantie :</strong></h3>
 <ul>
 <li><strong>Semantic Versioning</strong> : Les versions majeures (17, 18, 19, 20) sont compatibles</li>
@@ -230,555 +238,380 @@
 </ul>
 <h3 id="pourquoi-cette-évolution-">Pourquoi cette évolution ?</h3>
 <p>AngularJS avait des limitations importantes :</p>
+<ul>
+<li>Performance limitée avec les grosses applications</li>
+<li>Architecture difficile à maintenir</li>
+<li>Pas de support mobile natif (contrairement à React Native ou Flutter)</li>
+<li>Syntaxe complexe</li>
+</ul>
+<hr>
+<h2 id="-angular-20--les-nouveautés-majeures">🚀 Angular 20+ : Les nouveautés majeures</h2>
+<h3 id="1-performance-révolutionnaire"><strong>1. Performance révolutionnaire</strong></h3>
+<ul>
+<li><strong>Hydration</strong> : Rendu côté serveur amélioré</li>
+<li><strong>Deferrable views</strong> : Chargement différé intelligent</li>
+<li><strong>Control flow</strong> : Nouvelle syntaxe <code>@if</code>, <code>@for</code>, <code>@switch</code> plus performante</li>
+</ul>
+<h3 id="2-developer-experience-dx"><strong>2. Developer Experience (DX)</strong></h3>
+<ul>
+<li><strong>Standalone components</strong> : Plus besoin de modules !</li>
+<li><strong>Signals</strong> : Nouveau système de réactivité</li>
+<li><strong>Functional guards</strong> : Guards plus simples</li>
+<li><strong>CLI amélioré</strong> : Génération de code plus intelligente</li>
+<li><strong>Control Flow</strong> : Nouvelle syntaxe <code>@if</code>, <code>@for</code>, <code>@switch</code> (remplace <code>*ngIf</code>, <code>*ngFor</code>)</li>
+</ul>
+<h3 id="3-bundle-plus-léger"><strong>3. Bundle plus léger</strong></h3>
+<ul>
+<li><strong>Tree-shaking</strong> amélioré</li>
+<li><strong>Lazy loading</strong> optimisé</li>
+<li><strong>Compilation</strong> plus efficace</li>
+</ul>
+<h3 id="4-modernité"><strong>4. Modernité</strong></h3>
+<ul>
+<li><strong>ES2022+</strong> support</li>
+<li><strong>Web Components</strong> intégrés</li>
+<li><strong>PWA</strong> facilitées</li>
+<li><strong>Mobile</strong> : Support PWA pour applications mobiles (pas natif mais web optimisé)</li>
+</ul>
+<hr>
+<h2 id="-angular-vs-react-vs-vue--comparaison">⚖️ Angular vs React vs Vue : Comparaison</h2>
+<h3 id="angular-"><strong>Angular</strong> 🟥</h3>
+<p><strong>Avantages :</strong></p>
+<ul>
+<li>Framework complet (tout inclus)</li>
+<li>TypeScript par défaut (sécurité des types)</li>
+<li>Architecture très structurée</li>
+<li>Excellent pour les grosses équipes</li>
+<li>CLI puissant</li>
+<li>Injection de dépendances native</li>
+<li>Support officiel Google</li>
+</ul>
+<p><strong>Inconvénients :</strong></p>
+<ul>
+<li>Courbe d&rsquo;apprentissage plus raide</li>
+<li>Bundle plus lourd</li>
+<li>Moins flexible que React</li>
+<li>Écosystème moins vaste</li>
+</ul>
+<h3 id="react-"><strong>React</strong> 🔵</h3>
+<p><strong>Avantages :</strong></p>
+<ul>
+<li>Très flexible</li>
+<li>Écosystème immense</li>
+<li>Courbe d&rsquo;apprentissage douce</li>
+<li>Excellent pour les petits projets</li>
+<li>Très populaire</li>
+</ul>
+<p><strong>Inconvénients :</strong></p>
+<ul>
+<li>Trop de choix (fatigue décisionnelle)</li>
+<li>Pas de structure imposée</li>
+<li>Dépendances externes nombreuses</li>
+<li>Pas de TypeScript par défaut</li>
+</ul>
+<h3 id="vue-"><strong>Vue</strong> 🟢</h3>
+<p><strong>Avantages :</strong></p>
+<ul>
+<li>Très simple à apprendre</li>
+<li>Documentation excellente</li>
+<li>Flexible (progressive framework)</li>
+<li>Performance excellente</li>
+</ul>
+<p><strong>Inconvénients :</strong></p>
+<ul>
+<li>Communauté plus petite</li>
+<li>Moins d&rsquo;entreprises l&rsquo;utilisent</li>
+<li>Écosystème moins mature</li>
+</ul>
+<hr>
+<h2 id="-parts-de-marché-2024">📊 Parts de marché (2024)</h2>
+<pre tabindex="0"><code>React     : ~40% des développeurs
+Angular   : ~25% des développeurs  
+Vue       : ~15% des développeurs
+Autres    : ~20% des développeurs
+</code></pre><p><strong>Source : Stack Overflow Developer Survey 2024</strong></p>
+<h3 id="entreprises-utilisant-angular-">Entreprises utilisant Angular :</h3>
+<ul>
+<li><strong>Google</strong> (évidemment !)</li>
+<li><strong>Microsoft</strong> (Office 365)</li>
+<li><strong>IBM</strong></li>
+<li><strong>SAP</strong></li>
+<li><strong>Deutsche Bank</strong></li>
+<li><strong>BMW</strong></li>
+<li><strong>Airbnb</strong> (partiellement)</li>
+</ul>
+<hr>
+<h2 id="-quand-utiliser-angular-">🎯 Quand utiliser Angular ?</h2>
+<h3 id="-utilisez-angular-quand-">✅ <strong>Utilisez Angular quand :</strong></h3>
+<ul>
+<li>Vous développez une <strong>application d&rsquo;entreprise</strong> complexe</li>
+<li>Votre équipe est <strong>grande</strong> (5+ développeurs)</li>
+<li>Vous avez besoin d&rsquo;une <strong>architecture robuste</strong></li>
+<li>Vous travaillez sur un <strong>projet long terme</strong></li>
+<li>Vous voulez une <strong>sécurité des types</strong> (TypeScript)</li>
+<li>Vous avez besoin de <strong>fonctionnalités avancées</strong> (routage, formulaires, etc.)</li>
+</ul>
+<h3 id="-évitez-angular-quand-">❌ <strong>Évitez Angular quand :</strong></h3>
+<ul>
+<li>Vous faites un <strong>prototype rapide</strong></li>
+<li>Votre équipe est <strong>petite</strong> (1-2 développeurs)</li>
+<li>Vous avez besoin de <strong>flexibilité maximale</strong></li>
+<li>Vous développez une <strong>application simple</strong></li>
+<li>Vous préférez <strong>moins de structure</strong></li>
+</ul>
+<hr>
+<h2 id="-architecture-dangular-ddd---domain-driven-design">🏗️ Architecture d&rsquo;Angular (DDD - Domain-Driven Design)</h2>
+<h3 id="pourquoi-ddd-dans-angular-"><strong>Pourquoi DDD dans Angular ?</strong></h3>
+<p>Le <strong>Domain-Driven Design (DDD)</strong> est particulièrement adapté à Angular car il permet d&rsquo;organiser le code autour des concepts métier plutôt que des aspects techniques. Cette approche facilite la maintenance, l&rsquo;évolution et la compréhension du code par toute l&rsquo;équipe.</p>
+<h3 id="autres-patterns-architecturaux-"><strong>Autres patterns architecturaux :</strong></h3>
+<h4 id="1-mvc-model-view-controller---pattern-classique"><strong>1. MVC (Model-View-Controller) - Pattern classique</strong></h4>
+<ul>
+<li><strong>Principe</strong> : Séparation en 3 couches distinctes</li>
+<li><strong>Model</strong> : Données et logique métier</li>
+<li><strong>View</strong> : Interface utilisateur</li>
+<li><strong>Controller</strong> : Coordination entre Model et View</li>
+<li><strong>Différence avec DDD</strong> : Plus technique, moins centré sur le domaine métier</li>
+<li><strong>Exemple Angular</strong> : Components (View) + Services (Model) + Routing (Controller)</li>
+</ul>
+<h4 id="2-clean-architecture-hexagonale---pattern-moderne"><strong>2. Clean Architecture (Hexagonale) - Pattern moderne</strong></h4>
+<ul>
+<li><strong>Principe</strong> : Dépendances pointent vers l&rsquo;intérieur (vers le domaine)</li>
+<li><strong>Couches</strong> : Entities → Use Cases → Interface Adapters → Frameworks</li>
+<li><strong>Différence avec DDD</strong> : Plus complexe, très structuré, excellent pour les grosses applications</li>
+<li><strong>Exemple Angular</strong> : Domain Services → Application Services → Infrastructure → UI Components</li>
+</ul>
+<p><strong>Notre choix DDD</strong> : Équilibre parfait entre simplicité et robustesse, idéal pour apprendre et pour la plupart des applications Angular.</p>
+<pre tabindex="0"><code>┌─────────────────────────────────────────────────────────────────┐
+│                        APPLICATION LAYER                       │
+├─────────────────────────────────────────────────────────────────┤
+│  ┌─────────────────┐  ┌─────────────────┐  ┌─────────────────┐  │
+│  │   PRESENTATION  │  │    DOMAIN       │  │   INFRASTRUCTURE│  │
+│  │     LAYER       │  │     LAYER       │  │      LAYER      │  │
+│  ├─────────────────┤  ├─────────────────┤  ├─────────────────┤  │
+│  │ • Components    │  │ • Services      │  │ • HTTP Client   │  │
+│  │ • Templates     │  │ • Models        │  │ • Local Storage │  │
+│  │ • Directives    │  │ • Interfaces    │  │ • External APIs │  │
+│  │ • Pipes         │  │ • Business Logic│  │ • Database      │  │
+│  │ • Guards        │  │ • Validators    │  │ • File System   │  │
+│  └─────────────────┘  └─────────────────┘  └─────────────────┘  │
+└─────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────┐
+│                        FEATURE ORGANIZATION                     │
+├─────────────────────────────────────────────────────────────────┤
+│  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐  ┌─────────┐  │
+│  │   FEATURE   │  │   FEATURE   │  │   FEATURE   │  │ SHARED  │  │
+│  │   MODULE 1  │  │   MODULE 2  │  │   MODULE 3  │  │ MODULE  │  │
+│  ├─────────────┤  ├─────────────┤  ├─────────────┤  ├─────────┤  │
+│  │ • Components│  │ • Components│  │ • Components│  │ • Utils │  │
+│  │ • Services  │  │ • Services  │  │ • Services  │  │ • Pipes │  │
+│  │ • Models    │  │ • Models    │  │ • Models    │  │ • Guards│  │
+│  │ • Routing   │  │ • Routing   │  │ • Routing   │  │ • Direct│  │
+│  └─────────────┘  └─────────────┘  └─────────────┘  └─────────┘  │
+└─────────────────────────────────────────────────────────────────┘
+</code></pre><h3 id="architecture-ddd-domain-driven-design-"><strong>Architecture DDD (Domain-Driven Design) :</strong></h3>
+<h4 id="1-presentation-layer-couche-présentation"><strong>1. Presentation Layer (Couche Présentation)</strong></h4>
+<ul>
+<li><strong>Components</strong> : Interface utilisateur (smart/dumb components)
+<ul>
+<li><em>Smart Component</em> : Gère l&rsquo;état et la logique (ex: <code>UserListComponent</code>)</li>
+<li><em>Dumb Component</em> : Affiche seulement les données (ex: <code>UserCardComponent</code>)</li>
+</ul>
+</li>
+<li><strong>Templates</strong> : Vue HTML avec data binding
+<ul>
+<li><em>Interpolation</em> : <code>{{ user.name }}</code></li>
+<li><em>Property Binding</em> : <code>[src]=&quot;user.avatar&quot;</code></li>
+<li><em>Event Binding</em> : <code>(click)=&quot;onUserClick(user)&quot;</code></li>
+</ul>
+</li>
+<li><strong>Directives</strong> : Comportements DOM (structurelles et attributs)
+<ul>
+<li><em>Structurelles</em> : <code>@if</code>, <code>@for</code>, <code>@switch</code> (nouveau control flow Angular 20+)</li>
+<li><em>Attributs</em> : <code>[ngClass]</code>, <code>[ngStyle]</code>, <code>[ngModel]</code></li>
+</ul>
+</li>
+<li><strong>Pipes</strong> : Transformation de données
+<ul>
+<li><em>Built-in</em> : <code>{{ date | date:'short' }}</code></li>
+<li><em>Custom</em> : <code>{{ price | currency:'EUR' }}</code></li>
+</ul>
+</li>
+<li><strong>Guards</strong> : Protection des routes et authentification
+<ul>
+<li><em>CanActivate</em> : Vérifier si l&rsquo;utilisateur peut accéder à une route</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-domain-layer-couche-métier"><strong>2. Domain Layer (Couche Métier)</strong></h4>
+<ul>
+<li><strong>Services</strong> : Logique métier, gestion d&rsquo;état
+<ul>
+<li><em>UserService</em> : Gestion des utilisateurs</li>
+<li><em>AuthService</em> : Authentification et autorisation</li>
+</ul>
+</li>
+<li><strong>Models</strong> : Entités et objets de valeur
+<ul>
+<li><em>User</em> : <code>{ id: number, name: string, email: string, role: UserRole }</code></li>
+<li><em>Product</em> : <code>{ id: string, name: string, price: number, category: Category }</code></li>
+</ul>
+</li>
+<li><strong>Interfaces</strong> : Contrats et types
+<ul>
+<li><em>IUser</em> : Définit la structure d&rsquo;un utilisateur</li>
+<li><em>IApiResponse</em> : Structure des réponses API</li>
+</ul>
+</li>
+<li><strong>Business Logic</strong> : Règles métier
+<ul>
+<li><em>Exemple</em> : &ldquo;Un utilisateur premium peut accéder aux fonctionnalités avancées&rdquo;</li>
+<li><em>Exemple</em> : &ldquo;Le prix final = prix de base + TVA (20%)&rdquo;</li>
+</ul>
+</li>
+<li><strong>Validators</strong> : Validation des données
+<ul>
+<li><em>Email</em> : Format email valide</li>
+<li><em>Age</em> : Âge entre 18 et 100 ans</li>
+<li><em>Password</em> : Au moins 8 caractères, 1 majuscule, 1 chiffre</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-infrastructure-layer-couche-infrastructure"><strong>3. Infrastructure Layer (Couche Infrastructure)</strong></h4>
+<ul>
+<li><strong>HTTP Client</strong> : Appels API
+<ul>
+<li><em>GET</em> : Récupérer les données</li>
+<li><em>POST</em> : Créer une nouvelle ressource</li>
+<li><em>PUT/PATCH</em> : Modifier une ressource</li>
+<li><em>DELETE</em> : Supprimer une ressource</li>
+</ul>
+</li>
+<li><strong>Interceptors</strong> : Interception des requêtes HTTP
+<ul>
+<li><em>AuthInterceptor</em> : Ajouter le token d&rsquo;authentification</li>
+<li><em>ErrorInterceptor</em> : Gérer les erreurs globalement</li>
+<li><em>LoggingInterceptor</em> : Logger les requêtes</li>
+</ul>
+</li>
+<li><strong>Resolvers</strong> : Préchargement de données
+<ul>
+<li><em>UserResolver</em> : Charger les données utilisateur avant d&rsquo;afficher la page</li>
+</ul>
+</li>
+<li><strong>Local Storage</strong> : Persistance locale
+<ul>
+<li><em>User preferences</em> : Thème, langue, paramètres</li>
+<li><em>Cache</em> : Données temporaires</li>
+</ul>
+</li>
+<li><strong>External APIs</strong> : Intégrations tierces
+<ul>
+<li><em>Payment API</em> : Stripe, PayPal</li>
+<li><em>Maps API</em> : Google Maps</li>
+<li><em>Social APIs</em> : Facebook, Twitter</li>
+</ul>
+</li>
+</ul>
+<h3 id="organisation-par-features-"><strong>Organisation par Features :</strong></h3>
+<ul>
+<li><strong>Feature Modules</strong> : Modules métier autonomes
+<ul>
+<li><em>UserModule</em> : Gestion des utilisateurs</li>
+<li><em>ProductModule</em> : Catalogue de produits</li>
+<li><em>OrderModule</em> : Gestion des commandes</li>
+</ul>
+</li>
+<li><strong>Shared Module</strong> : Composants et services réutilisables
+<ul>
+<li><em>CommonModule</em> : Directives et pipes communs</li>
+<li><em>SharedComponents</em> : Boutons, modales, formulaires</li>
+</ul>
+</li>
+<li><strong>Core Module</strong> : Services globaux (auth, logging, etc.)
+<ul>
+<li><em>AuthService</em> : Authentification globale</li>
+<li><em>LoggingService</em> : Logs de l&rsquo;application</li>
+<li><em>ErrorHandler</em> : Gestion d&rsquo;erreurs globale</li>
+</ul>
+</li>
+<li><strong>Routing</strong> : Navigation et lazy loading par feature
+<ul>
+<li><em>Lazy Loading</em> : Chargement à la demande</li>
+<li><em>Child Routes</em> : Routes imbriquées</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="-ce-que-vous-allez-apprendre">🎓 Ce que vous allez apprendre</h2>
+<h3 id="partie-1--fondamentaux-et-architecture-ddd"><strong>Partie 1 : Fondamentaux et Architecture DDD</strong></h3>
+<ul>
+<li>Création d&rsquo;un projet Angular</li>
+<li>Structure d&rsquo;un composant</li>
+<li>Data binding</li>
+<li>Directives structurelles</li>
+<li>Organisation en features et modules</li>
+</ul>
+<h3 id="partie-2--interactivité"><strong>Partie 2 : Interactivité</strong></h3>
+<ul>
+<li>Services et injection de dépendances</li>
+<li>Routing</li>
+<li>Formulaires réactifs</li>
+<li>Communication entre composants</li>
+</ul>
+<h3 id="partie-3--gestion-d"><strong>Partie 3 : Gestion d&rsquo;État Avancée et Composants Personnalisés</strong></h3>
+<ul>
+<li>Gestion d&rsquo;état avec Signals (avantages vs anciennes méthodes)</li>
+<li>Pipes personnalisés</li>
+<li>Directives personnalisées</li>
+<li>Communication avancée entre composants</li>
+</ul>
+<h3 id="partie-4--tests-performance-et-déploiement"><strong>Partie 4 : Tests, Performance et Déploiement</strong></h3>
+<ul>
+<li>Tests unitaires et d&rsquo;intégration</li>
+<li>Optimisations de performance</li>
+<li>Mise en production</li>
+<li>Bonnes pratiques et code review</li>
+</ul>
+<h3 id="partie-5--projet-final"><strong>Partie 5 : Projet final</strong></h3>
+<ul>
+<li>Application complète</li>
+<li>Bonnes pratiques</li>
+<li>Déploiement</li>
+<li>Code review et refactoring</li>
+</ul>
+<hr>
+<h2 id="-outils-que-nous-utiliserons">🛠️ Outils que nous utiliserons</h2>
+<ul>
+<li><strong>Angular CLI</strong> : Outil de développement</li>
+<li><strong>TypeScript</strong> : Langage de programmation</li>
+<li><strong>Jasmine/Karma</strong> : Tests unitaires</li>
+<li><strong>Git</strong> : Versioning</li>
+<li><strong>VS Code</strong> : Éditeur de code (recommandé)</li>
+</ul>
+<hr>
+<h2 id="-objectifs-dapprentissage">🎯 Objectifs d&rsquo;apprentissage</h2>
+<p>À la fin de ce cours, vous serez capable de :</p>
+<ul>
+<li>✅ Comprendre l&rsquo;architecture Angular</li>
+<li>✅ Créer des composants réutilisables</li>
+<li>✅ Utiliser les services et l&rsquo;injection de dépendances</li>
+<li>✅ Implémenter le routing</li>
+<li>✅ Gérer les formulaires</li>
+<li>✅ Travailler avec les Signals (nouveau en Angular 20+)</li>
+<li>✅ Écrire des tests unitaires</li>
+<li>✅ Déployer une application Angular</li>
+<li>✅ Suivre les bonnes pratiques</li>
+</ul>
+<hr>
+<h2 id="-prêt-à-commencer-">🚀 Prêt à commencer ?</h2>
+<p>Dans les prochaines parties, nous allons créer une application <strong>Todo List</strong> complète qui nous permettra d&rsquo;explorer tous les concepts d&rsquo;Angular. Chaque partie sera accompagnée de tests et de bonnes pratiques.</p>
+<p><strong>Prochaine étape :</strong> <a href="./partie-1-fondamentaux.md">Partie 1 - Fondamentaux d&rsquo;Angular</a></p>
+<hr>
+<p><em>💡 <strong>Conseil du mentor :</strong> Angular peut sembler complexe au début, mais sa structure rigide vous aidera à devenir un meilleur développeur. Prenez le temps de comprendre chaque concept avant de passer au suivant !</em></p>
+
   
-    <h2><a href="/partie-1/"></a></h2>
-    <h1 id="partie-1--fondamentaux-et-architecture-ddd">Partie 1 : Fondamentaux et Architecture DDD</h1>
-<h2 id="-objectifs-de-la-partie-1">🎯 Objectifs de la partie 1</h2>
-<p>À la fin de cette partie, vous serez capable de :</p>
-<ul>
-<li>✅ Créer un projet Angular 20+</li>
-<li>✅ Comprendre l&rsquo;architecture DDD</li>
-<li>✅ Créer des composants et utiliser le data binding</li>
-<li>✅ Utiliser les directives structurelles modernes (<code>@if</code>, <code>@for</code>)</li>
-<li>✅ Implémenter les pipes built-in</li>
-<li>✅ Mettre en place le routing de base</li>
-<li>✅ Utiliser les services et simuler des appels API</li>
-</ul>
-<hr>
-<h2 id="-étape-1--création-du-projet-angular">🚀 Étape 1 : Création du projet Angular</h2>
-<h3 id="prérequis"><strong>Prérequis</strong></h3>
-<h4 id="1-vérifierinstaller-nodejs"><strong>1. Vérifier/Installer Node.js</strong></h4>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Vérifier si Node.js est installé</span>
-</span></span><span style="display:flex;"><span>node --version
-</span></span><span style="display:flex;"><span>npm --version
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#57606a"># Si pas installé, télécharger depuis : https://nodejs.org/</span>
-</span></span><span style="display:flex;"><span><span style="color:#57606a"># Ou installer via Homebrew (macOS)</span>
-</span></span><span style="display:flex;"><span>brew install node
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#57606a"># Ou installer via Chocolatey (Windows)</span>
-</span></span><span style="display:flex;"><span>choco install nodejs
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#57606a"># Version requise : Node.js 20+ pour Angular 20+</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h4 id="2-mettre-à-jour-npm-optionnel-mais-recommandé"><strong>2. Mettre à jour npm (optionnel mais recommandé)</strong></h4>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Mettre à jour npm vers la dernière version</span>
-</span></span><span style="display:flex;"><span>npm install -g npm@latest
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#57606a"># Vérifier la version</span>
-</span></span><span style="display:flex;"><span>npm --version
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h4 id="3-autres-prérequis"><strong>3. Autres prérequis</strong></h4>
-<ul>
-<li>Git installé</li>
-<li>Compte GitHub créé</li>
-</ul>
-<h3 id="création-du-projet"><strong>Création du projet</strong></h3>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#57606a"># Installer Angular CLI globalement</span>
-</span></span><span style="display:flex;"><span>npm install -g @angular/cli
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#57606a"># Créer le projet TodoList</span>
-</span></span><span style="display:flex;"><span>ng new todo-list-app
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#57606a"># Réponses aux questions :</span>
-</span></span><span style="display:flex;"><span><span style="color:#57606a"># - Would you like to add Angular routing? → Yes</span>
-</span></span><span style="display:flex;"><span><span style="color:#57606a"># - Which stylesheet format would you like to use? → CSS (ou votre préférence)</span>
-</span></span><span style="display:flex;"><span><span style="color:#57606a"># - Do you want to create a &#39;zoneless&#39; application without zone.js (Developer Preview)? → No</span>
-</span></span><span style="display:flex;"><span><span style="color:#57606a"># - Do you want to enable Server-Side Rendering (SSR) and Static Site Generation (SSG/Prerendering)? → No</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="structure-du-projet-créé"><strong>Structure du projet créé</strong></h3>
-<pre tabindex="0"><code>todo-list-app/
-├── src/
-│   ├── app/
-│   │   ├── app.component.ts
-│   │   ├── app.component.html
-│   │   ├── app.component.css
-│   │   ├── app.module.ts
-│   │   └── app-routing.module.ts
-│   ├── assets/
-│   ├── index.html
-│   └── main.ts
-├── package.json
-└── angular.json
-</code></pre><h3 id="lancer-l"><strong>Lancer l&rsquo;application</strong></h3>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#6639ba">cd</span> todo-list-app
-</span></span><span style="display:flex;"><span>ng serve
-</span></span><span style="display:flex;"><span><span style="color:#57606a"># Ouvrir http://localhost:4200</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><hr>
-<h2 id="-étape-13--configuration-du-projet-angular">⚙️ Étape 1.3 : Configuration du projet Angular</h2>
-<h3 id="fichiers-de-configuration-principaux"><strong>Fichiers de configuration principaux</strong></h3>
-<h4 id="1-angularjson---configuration-du-workspace"><strong>1. angular.json - Configuration du workspace</strong></h4>
-<div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
-</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#0550ae">&#34;$schema&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;./node_modules/@angular/cli/lib/config/schema.json&#34;</span><span style="color:#1f2328">,</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#0550ae">&#34;version&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0550ae">1</span><span style="color:#1f2328">,</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#0550ae">&#34;newProjectRoot&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;projects&#34;</span><span style="color:#1f2328">,</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#0550ae">&#34;projects&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#0550ae">&#34;todo-list-app&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#0550ae">&#34;projectType&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;application&#34;</span><span style="color:#1f2328">,</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#0550ae">&#34;schematics&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">{},</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#0550ae">&#34;root&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;&#34;</span><span style="color:#1f2328">,</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#0550ae">&#34;sourceRoot&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;src&#34;</span><span style="color:#1f2328">,</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#0550ae">&#34;prefix&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;app&#34;</span><span style="color:#1f2328">,</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#0550ae">&#34;architect&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#0550ae">&#34;build&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#0550ae">&#34;builder&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;@angular-devkit/build-angular:browser&#34;</span><span style="color:#1f2328">,</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#0550ae">&#34;options&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#0550ae">&#34;outputPath&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;dist/todo-list-app&#34;</span><span style="color:#1f2328">,</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#0550ae">&#34;index&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;src/index.html&#34;</span><span style="color:#1f2328">,</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#0550ae">&#34;main&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;src/main.ts&#34;</span><span style="color:#1f2328">,</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#0550ae">&#34;polyfills&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">[</span><span style="color:#0a3069">&#34;zone.js&#34;</span><span style="color:#1f2328">],</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#0550ae">&#34;tsConfig&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;tsconfig.app.json&#34;</span><span style="color:#1f2328">,</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#0550ae">&#34;assets&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">[</span><span style="color:#0a3069">&#34;src/favicon.ico&#34;</span><span style="color:#1f2328">,</span> <span style="color:#0a3069">&#34;src/assets&#34;</span><span style="color:#1f2328">],</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#0550ae">&#34;styles&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">[</span><span style="color:#0a3069">&#34;src/styles.css&#34;</span><span style="color:#1f2328">],</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#0550ae">&#34;scripts&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">[]</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">},</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#0550ae">&#34;serve&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#0550ae">&#34;builder&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;@angular-devkit/build-angular:dev-server&#34;</span><span style="color:#1f2328">,</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#0550ae">&#34;options&#34;</span><span style="color:#1f2328">:</span> <span style="color:#1f2328">{</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#0550ae">&#34;buildTarget&#34;</span><span style="color:#1f2328">:</span> <span style="color:#0a3069">&#34;todo-list-app:build&#34;</span>
-</span></span><span style="display:flex;"><span>          <span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>        <span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#1f2328">}</span>
-</span></span><span style="display:flex;"><span><span style="color:#1f2328">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><strong>Explications :</strong></p>
-  
-    <h2><a href="/partie-2/"></a></h2>
-    <h1 id="partie-2--authentification-et-formulaires-réactifs">Partie 2 : Authentification et Formulaires Réactifs</h1>
-<h2 id="-objectifs-de-la-partie-2">🎯 Objectifs de la Partie 2</h2>
-<p>À la fin de cette partie, vous serez capable de :</p>
-<ul>
-<li>✅ Créer des formulaires réactifs avec validation</li>
-<li>✅ Implémenter l&rsquo;authentification complète (login/register)</li>
-<li>✅ Utiliser les Guards pour protéger les routes</li>
-<li>✅ Maîtriser le lazy loading des modules</li>
-<li>✅ Gérer les intercepteurs HTTP</li>
-<li>✅ Créer une interface admin fonctionnelle</li>
-</ul>
-<hr>
-<h2 id="-étape-21--formulaires-réactifs">🔐 Étape 2.1 : Formulaires Réactifs</h2>
-<h3 id="-étape-21--formulaires-réactifs---terminée"><strong>✅ Étape 2.1 : Formulaires Réactifs - TERMINÉE</strong></h3>
-<p><strong>Implémentation :</strong></p>
-  
-    <h2><a href="/partie-3/"></a></h2>
-    <h1 id="partie-3--gestion-détat-avancée-et-composants-personnalisés">Partie 3 : Gestion d&rsquo;État Avancée et Composants Personnalisés</h1>
-<h2 id="-objectifs-de-la-partie-3">🎯 Objectifs de la Partie 3</h2>
-<p>À la fin de cette partie, vous serez capable de :</p>
-<ul>
-<li>✅ Maîtriser la gestion d&rsquo;état avec Signals (avantages vs anciennes méthodes)</li>
-<li>✅ Créer des pipes personnalisés pour la transformation de données</li>
-<li>✅ Développer des directives personnalisées</li>
-<li>✅ Implémenter une communication avancée entre composants</li>
-<li>✅ Optimiser les performances avec les nouvelles fonctionnalités Angular 20+</li>
-</ul>
-<hr>
-<h2 id="-étape-31--gestion-détat-avancée-avec-signals">🔄 Étape 3.1 : Gestion d&rsquo;État Avancée avec Signals</h2>
-<h3 id="pourquoi-les-signals-sont-révolutionnaires-"><strong>Pourquoi les Signals sont révolutionnaires ?</strong></h3>
-<p>Les Signals d&rsquo;Angular 20+ représentent une <strong>révolution</strong> dans la gestion d&rsquo;état par rapport aux anciennes méthodes :</p>
-  
-    <h2><a href="/partie-4/"></a></h2>
-    <h1 id="partie-4--tests-performance-et-déploiement">Partie 4 : Tests, Performance et Déploiement</h1>
-<h2 id="-objectifs-de-la-partie-4">🎯 Objectifs de la Partie 4</h2>
-<p>À la fin de cette partie, vous serez capable de :</p>
-<ul>
-<li>✅ Écrire des tests unitaires, d&rsquo;intégration et e2e avec Angular</li>
-<li>✅ Optimiser les performances avec OnPush strategy, trackBy, lazy loading</li>
-<li>✅ Configurer et déployer une application Angular en production</li>
-<li>✅ Appliquer les bonnes pratiques de code review et refactoring</li>
-</ul>
-<hr>
-<h2 id="-étape-41--tests-unitaires-et-dintégration">🧪 Étape 4.1 : Tests Unitaires et d&rsquo;Intégration</h2>
-<h3 id="pourquoi-les-tests-sont-essentiels-"><strong>Pourquoi les tests sont essentiels ?</strong></h3>
-<p>Les tests garantissent la <strong>qualité du code</strong> et la <strong>fiabilité de l&rsquo;application</strong> :</p>
-  
-    <h2><a href="/partie-5/"></a></h2>
-    <h1 id="partie-5--projet-final---évaluation-pratique">Partie 5 : Projet Final - Évaluation Pratique</h1>
-<h2 id="-objectifs-de-lévaluation">🎯 Objectifs de l&rsquo;évaluation</h2>
-<p>Cette partie constitue l&rsquo;<strong>évaluation finale</strong> du module Angular. Les étudiants doivent démontrer leur maîtrise de tous les concepts vus dans les 4 parties précédentes à travers :</p>
-<ol>
-<li><strong>Un projet libre</strong> utilisant tous les concepts du cours</li>
-<li><strong>Une démonstration vidéo</strong> de 15-20 minutes maximum</li>
-<li><strong>Une présentation technique</strong> de l&rsquo;architecture Angular</li>
-</ol>
-<hr>
-<h2 id="-projet-final---cahier-des-charges">📋 Projet Final - Cahier des charges</h2>
-<h3 id="-concepts-obligatoires-à-implémenter-"><strong>🔧 Concepts obligatoires à implémenter :</strong></h3>
-<h4 id="1-architecture-et-structure"><strong>1. Architecture et Structure</strong></h4>
-<ul>
-<li><input disabled="" type="checkbox"> <strong>Architecture DDD</strong> : Organisation en features</li>
-<li><input disabled="" type="checkbox"> <strong>Composants standalone</strong> : Utilisation exclusive (sauf si vraiment vous êtes pas chaud)</li>
-<li><input disabled="" type="checkbox"> <strong>Structure de fichiers</strong> : Respect de la convention Angular</li>
-<li><input disabled="" type="checkbox"> <strong>Repository Git</strong> : Création d&rsquo;un repo dédié au projet</li>
-<li><input disabled="" type="checkbox"> <strong>Commits conventionnels</strong> : Un commit par feature/fix/refact</li>
-</ul>
-<h4 id="2-authentification-et-autorisations"><strong>2. Authentification et Autorisations</strong></h4>
-<ul>
-<li><input disabled="" type="checkbox"> <strong>Système de login/register</strong> : Formulaires réactifs avec validation</li>
-<li><input disabled="" type="checkbox"> <strong>Gestion des rôles</strong> : User et Admin</li>
-<li><input disabled="" type="checkbox"> <strong>AuthGuard</strong> : Protection des routes utilisateur</li>
-<li><input disabled="" type="checkbox"> <strong>AdminGuard</strong> : Protection des routes admin</li>
-<li><input disabled="" type="checkbox"> <strong>Persistance de session</strong> : localStorage ou sessionStorage</li>
-</ul>
-<h4 id="3-formulaires-et-validation"><strong>3. Formulaires et Validation</strong></h4>
-<ul>
-<li><input disabled="" type="checkbox"> <strong>Reactive Forms</strong> : Utilisation de FormBuilder, FormGroup, FormControl</li>
-<li><input disabled="" type="checkbox"> <strong>Validation personnalisée</strong> : Au moins 1 validator custom</li>
-<li><input disabled="" type="checkbox"> <strong>Gestion d&rsquo;erreurs</strong> : Affichage des erreurs en temps réel</li>
-<li><input disabled="" type="checkbox"> <strong>Types stricts</strong> : Pas de <code>any</code>, typage correct</li>
-</ul>
-<h4 id="4-routing-et-navigation"><strong>4. Routing et Navigation</strong></h4>
-<ul>
-<li><input disabled="" type="checkbox"> <strong>Lazy Loading</strong> : Implémentation obligatoire</li>
-<li><input disabled="" type="checkbox"> <strong>Route Guards</strong> : Auth et Admin guards fonctionnels</li>
-<li><input disabled="" type="checkbox"> <strong>Navigation dynamique</strong> : Menu qui s&rsquo;adapte selon le rôle</li>
-<li><input disabled="" type="checkbox"> <strong>Gestion des paramètres</strong> : Routes avec paramètres</li>
-</ul>
-<h4 id="5-gestion-d"><strong>5. Gestion d&rsquo;État avec Signals (Angular 20+)</strong></h4>
-<ul>
-<li><input disabled="" type="checkbox"> <strong>Signals writable</strong> : Implémentation dans les composants</li>
-<li><input disabled="" type="checkbox"> <strong>Computed signals</strong> : Utilisation obligatoire</li>
-<li><input disabled="" type="checkbox"> <strong>Effects</strong> : Au moins 1 effet implémenté</li>
-<li><input disabled="" type="checkbox"> <strong>Services avec Signals</strong> : Gestion d&rsquo;état globale</li>
-</ul>
-<h4 id="6-composants-personnalisés"><strong>6. Composants Personnalisés</strong></h4>
-<ul>
-<li><input disabled="" type="checkbox"> <strong>Pipes personnalisés</strong> : Au moins 2 pipes custom</li>
-<li><input disabled="" type="checkbox"> <strong>Directives personnalisées</strong> : Au moins 1 directive custom</li>
-<li><input disabled="" type="checkbox"> <strong>Composants réutilisables</strong> : Smart/Dumb components</li>
-<li><input disabled="" type="checkbox"> <strong>Communication composants</strong> : @Input, @Output, services</li>
-</ul>
-<h4 id="7-http-et-intercepteurs"><strong>7. HTTP et Intercepteurs</strong></h4>
-<ul>
-<li><input disabled="" type="checkbox"> <strong>HTTP Interceptors</strong> : Implémentation obligatoire</li>
-<li><input disabled="" type="checkbox"> <strong>Gestion d&rsquo;erreurs HTTP</strong> : Service centralisé</li>
-<li><input disabled="" type="checkbox"> <strong>Simulation API</strong> : Mock data avec délais</li>
-<li><input disabled="" type="checkbox"> <strong>Loading states</strong> : Indicateurs de chargement</li>
-</ul>
-<h4 id="8-interface-utilisateur"><strong>8. Interface Utilisateur</strong></h4>
-<ul>
-<li><input disabled="" type="checkbox"> <strong>Tailwind CSS</strong> : Utilisation exclusive</li>
-<li><input disabled="" type="checkbox"> <strong>Interface responsive</strong> : Mobile-friendly</li>
-<li><input disabled="" type="checkbox"> <strong>UX moderne</strong> : Navigation intuitive, feedback utilisateur</li>
-<li><input disabled="" type="checkbox"> <strong>Accessibility</strong> : Bonnes pratiques d&rsquo;accessibilité</li>
-</ul>
-<h4 id="9-qualité-du-code"><strong>9. Qualité du Code</strong></h4>
-<ul>
-<li><input disabled="" type="checkbox"> <strong>ESLint strict</strong> : Aucune erreur de linting</li>
-<li><input disabled="" type="checkbox"> <strong>TypeScript strict</strong> : Types corrects, pas de <code>any</code></li>
-<li><input disabled="" type="checkbox"> <strong>Code propre</strong> : Noms explicites, fonctions courtes</li>
-<li><input disabled="" type="checkbox"> <strong>Comments en anglais</strong> : Documentation du code complexe</li>
-</ul>
-<h4 id="10-tests-et-débogage"><strong>10. Tests et Débogage</strong></h4>
-<ul>
-<li><input disabled="" type="checkbox"> <strong>Tests unitaires</strong> : Au moins 3 tests (service, pipe, directive)</li>
-<li><input disabled="" type="checkbox"> <strong>Tests d&rsquo;intégration</strong> : Au moins 1 test de composant</li>
-<li><input disabled="" type="checkbox"> <strong>Console propre</strong> : Pas d&rsquo;erreurs ou de warnings</li>
-<li><input disabled="" type="checkbox"> <strong>Performance</strong> : Application réactive, pas de lags</li>
-</ul>
-<hr>
-<h2 id="-démonstration-vidéo-15-20-min-max">🎥 Démonstration Vidéo (15-20 min max)</h2>
-<h3 id="-tests-fonctionnels-obligatoires-"><strong>📱 Tests fonctionnels obligatoires :</strong></h3>
-<h4 id="1-authentification-5-minutes"><strong>1. Authentification (5 minutes)</strong></h4>
-<ul>
-<li><input disabled="" type="checkbox"> <strong>Register</strong> : Créer un compte utilisateur</li>
-<li><input disabled="" type="checkbox"> <strong>Login valide</strong> : Connexion réussie</li>
-<li><input disabled="" type="checkbox"> <strong>Login invalide</strong> : Mauvais password → message d&rsquo;erreur</li>
-<li><input disabled="" type="checkbox"> <strong>Logout</strong> : Déconnexion et redirection</li>
-<li><input disabled="" type="checkbox"> <strong>Persistance</strong> : Rafraîchir la page → rester connecté</li>
-</ul>
-<h4 id="2-autorisation-et-guards-3-minutes"><strong>2. Autorisation et Guards (3 minutes)</strong></h4>
-<ul>
-<li><input disabled="" type="checkbox"> <strong>AuthGuard</strong> : Accès refusé si non connecté → redirection login</li>
-<li><input disabled="" type="checkbox"> <strong>AdminGuard</strong> : Accès admin refusé si user normal</li>
-<li><input disabled="" type="checkbox"> <strong>Navigation dynamique</strong> : Menu qui change selon le rôle</li>
-<li><input disabled="" type="checkbox"> <strong>Roles</strong> : Démontrer user vs admin</li>
-</ul>
-<h4 id="3-fonctionnalités-métier-4-minutes"><strong>3. Fonctionnalités Métier (4 minutes)</strong></h4>
-<ul>
-<li><input disabled="" type="checkbox"> <strong>CRUD complet</strong> : Create, Read, Update, Delete</li>
-<li><input disabled="" type="checkbox"> <strong>Formulaires</strong> : Validation en temps réel</li>
-<li><input disabled="" type="checkbox"> <strong>Pipes personnalisés</strong> : Transformation de données visible</li>
-<li><input disabled="" type="checkbox"> <strong>Directives personnalisées</strong> : Comportement custom visible</li>
-</ul>
-<h4 id="4-gestion-d"><strong>4. Gestion d&rsquo;État et Performance (3 minutes)</strong></h4>
-<ul>
-<li><input disabled="" type="checkbox"> <strong>Signals</strong> : Démontrer la réactivité des computed signals</li>
-<li><input disabled="" type="checkbox"> <strong>Effects</strong> : Montrer un effet qui se déclenche</li>
-<li><input disabled="" type="checkbox"> <strong>Persistence</strong> : Données sauvegardées automatiquement</li>
-<li><input disabled="" type="checkbox"> <strong>Loading states</strong> : Indicateurs de chargement</li>
-</ul>
-<h4 id="5-interface-et-ux-2-minutes"><strong>5. Interface et UX (2 minutes)</strong></h4>
-<ul>
-<li><input disabled="" type="checkbox"> <strong>Responsive</strong> : Tester sur mobile/desktop</li>
-<li><input disabled="" type="checkbox"> <strong>Feedback utilisateur</strong> : Messages de succès/erreur</li>
-<li><input disabled="" type="checkbox"> <strong>Navigation fluide</strong> : Pas de bugs visuels</li>
-<li><input disabled="" type="checkbox"> <strong>Accessibility</strong> : Démontrer au moins 1 feature accessible</li>
-</ul>
-<h4 id="6-qualité-technique-3-minutes"><strong>6. Qualité Technique (3 minutes)</strong></h4>
-<ul>
-<li><input disabled="" type="checkbox"> <strong>Console propre</strong> : Ouvrir les DevTools → pas d&rsquo;erreurs</li>
-<li><input disabled="" type="checkbox"> <strong>Tests</strong> : Lancer <code>npm test</code> → tests passent</li>
-<li><input disabled="" type="checkbox"> <strong>Linting</strong> : Lancer <code>npm run lint</code> → pas d&rsquo;erreurs</li>
-<li><input disabled="" type="checkbox"> <strong>Build</strong> : Lancer <code>npm run build</code> → build réussit</li>
-</ul>
-<hr>
-<h2 id="-présentation-architecture-angular-5-min-dans-la-vidéo">🏗️ Présentation Architecture Angular (5 min dans la vidéo)</h2>
-<h3 id="-fichiers-clés-à-expliquer-"><strong>📁 Fichiers clés à expliquer :</strong></h3>
-<h4 id="1-point-d"><strong>1. Point d&rsquo;entrée</strong></h4>
-<ul>
-<li><input disabled="" type="checkbox"> <strong><code>src/main.ts</code></strong> : Bootstrap de l&rsquo;application</li>
-<li><input disabled="" type="checkbox"> <strong><code>src/app/app.config.ts</code></strong> : Configuration globale</li>
-<li><input disabled="" type="checkbox"> <strong><code>src/app/app.component.ts</code></strong> : Composant racine</li>
-</ul>
-<h4 id="2-routing-et-navigation"><strong>2. Routing et Navigation</strong></h4>
-<ul>
-<li><input disabled="" type="checkbox"> <strong><code>src/app/app.routes.ts</code></strong> : Routes principales</li>
-<li><input disabled="" type="checkbox"> <strong><code>src/app/features/*/routes.ts</code></strong> : Routes par feature</li>
-<li><input disabled="" type="checkbox"> <strong>Lazy Loading</strong> : Comment ça fonctionne</li>
-</ul>
-<h4 id="3-architecture-ddd"><strong>3. Architecture DDD</strong></h4>
-<ul>
-<li><input disabled="" type="checkbox"> <strong><code>src/app/features/</code></strong> : Logique métier par domaine</li>
-<li><input disabled="" type="checkbox"> <strong><code>src/app/shared/</code></strong> : Composants réutilisables</li>
-<li><input disabled="" type="checkbox"> <strong><code>src/app/core/</code></strong> : Services globaux (si présent)</li>
-</ul>
-<h4 id="4-configuration"><strong>4. Configuration</strong></h4>
-<ul>
-<li><input disabled="" type="checkbox"> <strong><code>angular.json</code></strong> : Configuration du projet</li>
-<li><input disabled="" type="checkbox"> <strong><code>package.json</code></strong> : Dépendances et scripts</li>
-<li><input disabled="" type="checkbox"> <strong><code>tsconfig.json</code></strong> : Configuration TypeScript</li>
-</ul>
-<h4 id="5-styling-et-assets"><strong>5. Styling et Assets</strong></h4>
-<ul>
-<li><input disabled="" type="checkbox"> <strong><code>src/styles.scss</code></strong> : Styles globaux + Tailwind</li>
-<li><input disabled="" type="checkbox"> <strong><code>tailwind.config.js</code></strong> : Configuration Tailwind</li>
-<li><input disabled="" type="checkbox"> <strong><code>src/assets/</code></strong> : Ressources statiques</li>
-</ul>
-<h3 id="-concepts-à-expliquer-"><strong>💡 Concepts à expliquer :</strong></h3>
-<ul>
-<li><input disabled="" type="checkbox"> <strong>Standalone Components</strong> : Expliquer le concept</li>
-<li><input disabled="" type="checkbox"> <strong>Dependency Injection</strong> : Fonctionnement dans Angular</li>
-<li><input disabled="" type="checkbox"> <strong>Change Detection</strong> : Mécanisme de détection</li>
-<li><input disabled="" type="checkbox"> <strong>Signals vs Observables</strong> : Différences et avantages</li>
-<li><input disabled="" type="checkbox"> <strong>Guards et Interceptors</strong> : Rôle dans l&rsquo;application</li>
-</ul>
-<hr>
-<h2 id="-critères-dévaluation">📊 Critères d&rsquo;évaluation</h2>
-<h3 id="barème-de-notation-20-"><strong>Barème de notation (/20) :</strong></h3>
-<table>
-  <thead>
-      <tr>
-          <th>Critère</th>
-          <th>Points</th>
-          <th>Détail</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><strong>Architecture et Structure</strong></td>
-          <td>4 pts</td>
-          <td>DDD, standalone, organisation</td>
-      </tr>
-      <tr>
-          <td><strong>Fonctionnalités Métier</strong></td>
-          <td>4 pts</td>
-          <td>CRUD, auth, guards, forms</td>
-      </tr>
-      <tr>
-          <td><strong>Signals et État</strong></td>
-          <td>3 pts</td>
-          <td>Writable, computed, effects</td>
-      </tr>
-      <tr>
-          <td><strong>Composants Personnalisés</strong></td>
-          <td>3 pts</td>
-          <td>Pipes, directives, réutilisabilité</td>
-      </tr>
-      <tr>
-          <td><strong>Qualité du Code</strong></td>
-          <td>2 pts</td>
-          <td>ESLint, TypeScript, tests</td>
-      </tr>
-      <tr>
-          <td><strong>Interface Utilisateur</strong></td>
-          <td>2 pts</td>
-          <td>Tailwind, UX, responsive</td>
-      </tr>
-      <tr>
-          <td><strong>Démonstration Vidéo</strong></td>
-          <td>2 pts</td>
-          <td>Clarté, exhaustivité, respect du temps</td>
-      </tr>
-  </tbody>
-</table>
-<h3 id="bonus-possibles-2-pts-max-"><strong>Bonus possibles (+2 pts max) :</strong></h3>
-<ul>
-<li><input disabled="" type="checkbox"> <strong>Tests avancés</strong> : Coverage &gt; 80%</li>
-<li><input disabled="" type="checkbox"> <strong>Performance</strong> : Optimisations (OnPush, trackBy)</li>
-<li><input disabled="" type="checkbox"> <strong>Fonctionnalités extras</strong> : Drag &amp; drop, animations, PWA</li>
-<li><input disabled="" type="checkbox"> <strong>Documentation</strong> : README complet, JSDoc</li>
-</ul>
-<hr>
-<h2 id="-suggestions-de-projets">🚀 Suggestions de projets</h2>
-<h3 id="-idées-d"><strong>💡 Idées d&rsquo;applications (au choix) :</strong></h3>
-<ol>
-<li><strong>📝 TodoList avancée</strong> : Étendre l&rsquo;app du cours</li>
-<li><strong>🛒 E-commerce</strong> : Produits, panier, commandes</li>
-<li><strong>📚 Gestion de bibliothèque</strong> : Livres, emprunts, utilisateurs</li>
-<li><strong>🎬 Netflix-like</strong> : Films, favoris, playlists</li>
-<li><strong>💰 Gestion de budget</strong> : Transactions, catégories, stats</li>
-<li><strong>🏥 Gestion d&rsquo;hôpital</strong> : Patients, médecins, rendez-vous</li>
-<li><strong>🎓 Plateforme e-learning</strong> : Cours, étudiants, notes</li>
-<li><strong>🍕 Système de livraison</strong> : Restaurants, commandes, livreurs</li>
-</ol>
-<h3 id="-contraintes-obligatoires-"><strong>⚠️ Contraintes obligatoires :</strong></h3>
-<ul>
-<li><strong>Minimum 3 entités</strong> métier différentes</li>
-<li><strong>Au moins 2 rôles</strong> utilisateur différents</li>
-<li><strong>Interface admin</strong> pour la gestion</li>
-<li><strong>Données mock</strong> réalistes et cohérentes</li>
-</ul>
-<hr>
-<h2 id="-planning-et-livraison">📅 Planning et Livraison</h2>
-<h3 id="-échéances-"><strong>🗓️ Échéances :</strong></h3>
-<ul>
-<li><strong>Durée</strong> : 1 mois après les 4 premiers jours de cours (le dernier jour, vous pourrez finir en classe ceux qui sont en retard)</li>
-<li><strong>Livraison</strong> : Code source + Vidéo de démonstration</li>
-<li><strong>Format vidéo</strong> : MP4, qualité HD, son clair</li>
-<li><strong>Durée vidéo</strong> : 15-20 minutes MAXIMUM</li>
-</ul>
-<h3 id="-livrables-"><strong>📦 Livrables :</strong></h3>
-<ol>
-<li><strong>Repository Git</strong> : Code source complet avec historique de commits</li>
-<li><strong>README.md</strong> : Instructions d&rsquo;installation et utilisation</li>
-<li><strong>Vidéo de démonstration</strong> : Tous les tests + présentation architecture</li>
-<li><strong>Document technique</strong> : Choix d&rsquo;architecture et justifications (optionnel)</li>
-</ol>
-<hr>
-<h2 id="-conseils-pour-réussir">🎯 Conseils pour réussir</h2>
-<h3 id="-recommandations-"><strong>✅ Recommandations :</strong></h3>
-<ul>
-<li><strong>Commencez simple</strong> : Implémentez d&rsquo;abord les fonctionnalités de base</li>
-<li><strong>Testez régulièrement</strong> : Ne laissez pas les bugs s&rsquo;accumuler</li>
-<li><strong>Documentez au fur et à mesure</strong> : README et comments</li>
-<li><strong>Préparez la vidéo</strong> : Script et répétition avant l&rsquo;enregistrement</li>
-<li><strong>Vérifiez la checklist</strong> : Tous les points doivent être validés</li>
-</ul>
-<h3 id="-pièges-à-éviter-"><strong>⚠️ Pièges à éviter :</strong></h3>
-<ul>
-<li><strong>Trop d&rsquo;ambition</strong> : Fonctionnalités complexes qui cassent l&rsquo;existant</li>
-<li><strong>Négligence du styling</strong> : Interface brouillon = points perdus</li>
-<li><strong>Tests oubliés</strong> : Les tests font partie de l&rsquo;évaluation</li>
-<li><strong>Vidéo trop longue</strong> : Respect strict des 20 minutes</li>
-<li><strong>Explications floues</strong> : Soyez précis dans vos démonstrations</li>
-</ul>
-<hr>
-<p><em>🎓 <strong>Objectif pédagogique :</strong> Cette évaluation valide votre capacité à créer une application Angular complète, moderne et professionnelle en utilisant les dernières fonctionnalités du framework.</em></p>
-  
-    <h2><a href="/posts/post-1/"></a></h2>
-    
-  
-    <h2><a href="/posts/post-2/"></a></h2>
-    
-  
-    <h2><a href="/posts/post-3/"></a></h2>
-    
-  
+
 
         </article>
     </main>
