@@ -608,24 +608,27 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="implémentation-du-formulaire-de-login"><strong>Implémentation du formulaire de login</strong></h3>
-<p>import { Component, inject } from &lsquo;@angular/core&rsquo;;
-import { CommonModule } from &lsquo;@angular/common&rsquo;;
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from &lsquo;@angular/forms&rsquo;;
-import { Router } from &lsquo;@angular/router&rsquo;;
-import { AuthService } from &lsquo;../../services/auth.service&rsquo;;</p>
-<p>@Component({
-selector: &lsquo;app-login&rsquo;,
-standalone: true,
-imports: [CommonModule, ReactiveFormsModule],
-template: `
-<div class="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-<div class="max-w-md w-full space-y-8">
-<div>
-<h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
-Connexion à votre compte
-</h2>
-</div></p>
-<pre><code>    &lt;form [formGroup]=&quot;loginForm&quot; (ngSubmit)=&quot;onSubmit()&quot; class=&quot;mt-8 space-y-6&quot;&gt;
+<pre><code class="language-typescript">// src/app/features/auth/components/login/login.component.ts
+import { Component, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
+
+@Component({
+  selector: 'app-login',
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule],
+  template: `
+    &lt;div class="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8"&gt;
+      &lt;div class="max-w-md w-full space-y-8"&gt;
+        &lt;div&gt;
+          &lt;h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900"&gt;
+            Connexion à votre compte
+          &lt;/h2&gt;
+        &lt;/div&gt;
+        
+        &lt;form [formGroup]=&quot;loginForm&quot; (ngSubmit)=&quot;onSubmit()&quot; class=&quot;mt-8 space-y-6&quot;&gt;
       &lt;!-- Email --&gt;
       &lt;div&gt;
         &lt;label for=&quot;email&quot; class=&quot;block text-sm font-medium text-gray-700&quot;&gt;
@@ -686,56 +689,61 @@ Connexion à votre compte
           &lt;p class=&quot;text-sm text-red-600&quot;&gt;{{ error() }}&lt;/p&gt;
         &lt;/div&gt;
       }
-    &lt;/form&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
-<p>`
+        &lt;/form&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  `
 })
 export class LoginComponent {
-private fb = inject(FormBuilder);
-private authService = inject(AuthService);
-private router = inject(Router);</p>
-<p>loginForm: FormGroup;
-loading = signal(false);
-error = signal<string>(&rsquo;&rsquo;);</p>
-<p>constructor() {
-this.loginForm = this.fb.group({
-email: [&rsquo;&rsquo;, [Validators.required, Validators.email]],
-password: [&rsquo;&rsquo;, [Validators.required, Validators.minLength(6)]]
-});
-}</p>
-<p>onSubmit() {
-if (this.loginForm.valid) {
-this.loading.set(true);
-this.error.set(&rsquo;&rsquo;);</p>
-<pre><code>  this.authService.login(this.loginForm.value).subscribe({
-    next: (user) =&gt; {
-      this.loading.set(false);
-      this.router.navigate(['/todos']);
-    },
-    error: (err) =&gt; {
-      this.loading.set(false);
-      this.error.set(err.message || 'Erreur de connexion');
+  private fb = inject(FormBuilder);
+  private authService = inject(AuthService);
+  private router = inject(Router);
+
+  loginForm: FormGroup;
+  loading = signal(false);
+  error = signal&lt;string&gt;('');
+
+  constructor() {
+    this.loginForm = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]]
+    });
+  }
+
+  onSubmit() {
+    if (this.loginForm.valid) {
+      this.loading.set(true);
+      this.error.set('');
+
+      this.authService.login(this.loginForm.value).subscribe({
+        next: (user) =&gt; {
+          this.loading.set(false);
+          this.router.navigate(['/todos']);
+        },
+        error: (err) =&gt; {
+          this.loading.set(false);
+          this.error.set(err.message || 'Erreur de connexion');
+        }
+      });
     }
-  });
+  }
+
+  isFieldInvalid(fieldName: string): boolean {
+    const field = this.loginForm.get(fieldName);
+    return !!(field &amp;&amp; field.invalid &amp;&amp; (field.dirty || field.touched));
+  }
+
+  getFieldError(fieldName: string): string {
+    const field = this.loginForm.get(fieldName);
+    if (field?.errors) {
+      if (field.errors['required']) return 'Ce champ est requis';
+      if (field.errors['email']) return 'Format d\'email invalide';
+      if (field.errors['minlength']) return `Minimum ${field.errors['minlength'].requiredLength} caractères`;
+    }
+    return '';
+  }
 }
 </code></pre>
-<p>}</p>
-<p>isFieldInvalid(fieldName: string): boolean {
-const field = this.loginForm.get(fieldName);
-return !!(field &amp;&amp; field.invalid &amp;&amp; (field.dirty || field.touched));
-}</p>
-<p>getFieldError(fieldName: string): string {
-const field = this.loginForm.get(fieldName);
-if (field?.errors) {
-if (field.errors[&lsquo;required&rsquo;]) return &lsquo;Ce champ est requis&rsquo;;
-if (field.errors[&rsquo;email&rsquo;]) return &lsquo;Format d'email invalide&rsquo;;
-if (field.errors[&lsquo;minlength&rsquo;]) return <code>Minimum ${field.errors['minlength'].requiredLength} caractères</code>;
-}
-return &lsquo;&rsquo;;
-}
-}</p>
 <h3 id="mise-à-jour-du-header-avec-gestion-d" class="text-black"><strong>Mise à jour du header avec gestion d&rsquo;authentification</strong></h3>
 <div class="highlight"><div style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
