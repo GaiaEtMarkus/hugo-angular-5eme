@@ -1,3 +1,11 @@
+---
+title: "Introduction à Angular"
+description: "Découvrez Angular 20+, son histoire, ses avantages et son architecture DDD"
+date: 2025-01-01
+author: "Cours Angular 5ème année"
+weight: 1
+---
+
 # Introduction à Angular
 
 ## 📚 Histoire d'Angular
@@ -354,4 +362,4 @@ Dans les prochaines parties, nous allons créer une application **Todo List** co
 ---
 
 
-*💡 **Conseil du mentor :** Angular peut sembler complexe au début, mais sa structure rigide vous aidera à devenir un meilleur développeur. Prenez le temps de comprendre chaque concept avant de passer au suivant !* 
+*💡 **Conseil du mentor :** Angular peut sembler complexe au début, mais sa structure rigide vous aidera à devenir un meilleur développeur. Prenez le temps de comprendre chaque concept avant de passer au suivant !*

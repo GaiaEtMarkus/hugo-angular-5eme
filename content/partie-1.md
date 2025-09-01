@@ -508,7 +508,7 @@ npx husky init
 # Configurer le hook pre-commit
 # Le fichier .husky/pre-commit sera créé automatiquement
 # Contenu du fichier .husky/pre-commit :
-npx lint-staged
+npx lint-staged --no-stash
 ```
 
 **💡 Husky** : Exécute automatiquement des scripts avant chaque commit Git. Il peut lancer ESLint, Prettier, ou des tests pour s'assurer que le code est propre avant d'être commité.
