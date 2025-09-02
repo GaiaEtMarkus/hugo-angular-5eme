@@ -8,6 +8,11 @@ theme = 'angular-course-theme'
   author = "Formateur Angular"
 
 [menu]
+ [[menu.main]]
+    identifier = "introduction"
+    name = "Introduction"
+    url = "/"
+    weight = 1
   [[menu.main]]
     identifier = "introduction"
     name = "Introduction"
