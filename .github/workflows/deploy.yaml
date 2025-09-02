@@ -10,7 +10,7 @@ permissions:
       
 jobs: # on déclare les groupes d'actions
   build:
-    runs-on: ubuntu-latest 
+    runs-on: ubuntu-latest  #
     steps:
       
       - name: Checkout repo
